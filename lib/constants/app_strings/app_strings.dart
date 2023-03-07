@@ -35,6 +35,39 @@ static const String username="Jim.";
   static const String discoverPostTLocation="NYC,NY";
   static const String discoverPostContent="What are your plans for the future and where do you see yourself in 5 years?";
 
+  //--------------------------answer screen text----------
+  static const String search="Search";
+  static const String location="Location";
+  static const String services="Services";
+  static const String product="Product";
+  static const String buyAndSell="Buying&Selling";
+  static const String others="Others";
+  static const String technology="Technologies";
+  static const String restaurants="Restaurants";
+
+  //-----------------------Drawer strings-------------
+
+  static const String person="Edit Profile";
+  static const String notification="Notification";
+  static const String passwordSetting="Password Settings";
+  static const String helpCentre="Help Center";
+  static const String whatIsAsk="What is Ask?";
+  //------------------------ Ask question screen------------
+
+
+
+
+//----------------------Inbox Screen text----------------
+  static const String inbox="Inbox";
+  static const String received="Received";
+  static const String sent="Sent";
+  static const String answerQuestion="Answer Question";
+
+
+
+
+
+
 
 
 

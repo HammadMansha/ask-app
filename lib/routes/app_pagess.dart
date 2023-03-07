@@ -5,12 +5,14 @@ import 'package:ask/bindings/auth/otpscreen_bindings.dart';
 import 'package:ask/bindings/auth/signup_binding.dart';
 import 'package:ask/bindings/auth/singupScreen2.dart';
 import 'package:ask/routes/app_routes.dart';
+import 'package:ask/views/answer/answer.dart';
 import 'package:ask/views/auth/forogt_password/forgot_password.dart';
 import 'package:ask/views/auth/login/login.dart';
 import 'package:ask/views/auth/signup/sign_up.dart';
 import 'package:ask/views/auth/signup/signup2.dart';
 import 'package:ask/views/auth/signup_or_login.dart';
 import 'package:ask/views/discover/discover.dart';
+import 'package:ask/views/inbox/inbox_screen.dart';
 import 'package:ask/views/notification/notification.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +22,7 @@ import '../views/auth/forogt_password/otp_screen.dart';
 import '../views/splash/splash_screen.dart';
 
 class AppPages {
-  static var initial = Routes.discover;
+  static var initial = Routes.inbox;
   static final routes = [
     // <------ Splash Routes --------->
     GetPage(
@@ -103,7 +105,7 @@ class AppPages {
     //------------------------Discover Screen-----------
     GetPage(
       name: Routes.discover,
-      page: () => const DiscoverScreen(),
+      page: () =>  DiscoverScreen(),
       // binding: OTPScreenBindings(),
       // middlewares: [
       //   RouteWelcomeMiddleware(priority: 1),
@@ -111,6 +113,31 @@ class AppPages {
       // ],
 
     ),
+    //-----------------------Answer Screen--------------
+
+    GetPage(
+      name: Routes.answer,
+      page: () => const AnswerScreen(),
+      // binding: OTPScreenBindings(),
+      // middlewares: [
+      //   RouteWelcomeMiddleware(priority: 1),
+      //
+      // ],
+
+    ),
+
+    //----------------------Inbox Screen------------
+    GetPage(
+      name: Routes.inbox,
+      page: () => const InboxScreen(),
+      // binding: OTPScreenBindings(),
+      // middlewares: [
+      //   RouteWelcomeMiddleware(priority: 1),
+      //
+      // ],
+
+    ),
+
 
 
   ];

@@ -17,4 +17,19 @@ class AppAssets {
   static const String comment = "$imageDir/comment.png";
   static const String bookmark = "$imageDir/bookmark.png";
 
+  //---------------------Answer Screen images------------------------
+  static const String product = "$imageDir/product.png";
+  static const String services = "$imageDir/services.png";
+  static const String technology = "$imageDir/technology.png";
+  static const String resturant = "$imageDir/resturant.png";
+  static const String handshake = "$imageDir/handshake.png";
+  static const String threeHorizontalDote = "$imageDir/horizontal_three_dots.png";
+
+  //------------------------------Drawer----------------------
+  static const String help = "$imageDir/help.png";
+  static const String person = "$imageDir/person.png";
+  static const String password = "$imageDir/password.png";
+
+
+
 }

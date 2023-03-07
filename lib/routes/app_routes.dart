@@ -8,6 +8,8 @@ class Routes {
   static const otp = '/otp';
   static const notification="/notificationscreen";
   static const discover="/discoverScreen";
+  static const answer="/answerScreen";
+  static const inbox="/inboxScreen";
 
 
 

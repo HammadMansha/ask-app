@@ -42,6 +42,11 @@ class CommonTextStyle {
       letterSpacing: 0.4,
       fontSize: 10,
       fontWeight: FontWeight.w400);
+  static TextStyle style7font16weight700white= TextStyle(
+      color: Colors.white,
+      letterSpacing: 0.4,
+      fontSize: 16,
+      fontWeight: FontWeight.w700);
 
 }
 
