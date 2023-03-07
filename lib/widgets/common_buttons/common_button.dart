@@ -93,4 +93,110 @@ class CommonButton2 extends StatelessWidget {
 }
 
 
+//----------------------Notifications button-------------------
+class CommonButton3 extends StatelessWidget {
+  final String text;
+  final TextStyle textStyle;
+  final void Function() onPressed;
+  final Color fillColor;
+
+  // ignore: use_key_in_widget_constructors
+  const CommonButton3({
+    required this.text,
+    required this.textStyle,
+    required this.onPressed,
+    required this.fillColor
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      //color: CommonColor.loginAndSendCodeButtonColor,
+      width: 114,
+
+      height: 60,
+      child: MaterialButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(7.0),
+          side:  BorderSide(
+            color: Colors.black,
+            width: 3,
+          ),
+        ),
+
+        onPressed: onPressed,
+        // minWidth: Get.width / 3,
+        // height: 42,
+        // color: Color.fromRGBO(72, 190, 235, 1),
+        color: fillColor?? Colors.transparent,
+        child: Text(
+          text,
+          textScaleFactor: 1.0,
+          style: textStyle,
+          maxLines: 2,
+        ),
+      ),
+    );
+  }
+}
+
+//-----------------Discover screen Gradient button-----------
+class CommonButton4 extends StatelessWidget {
+  final String text;
+  final TextStyle textStyle;
+  final void Function() onPressed;
+  final Color fillColor;
+
+  // ignore: use_key_in_widget_constructors
+  const CommonButton4({
+    required this.text,
+    required this.textStyle,
+    required this.onPressed,
+    required this.fillColor
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.center,
+              end: Alignment.bottomCenter,
+              colors: [
+                AppColors.discoverbuttonGradint2,
+                AppColors.discoverbuttonGradint1
+              ])),
+
+      //color: CommonColor.loginAndSendCodeButtonColor,
+      width: 100,
+
+      height: 60,
+      child: MaterialButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          side:  BorderSide(
+            color: Colors.transparent,
+            width: 3,
+          ),
+        ),
+
+        onPressed: onPressed,
+        color: fillColor?? Colors.transparent,
+
+        // minWidth: Get.width / 3,
+        // height: 42,
+        // color: Color.fromRGBO(72, 190, 235, 1),
+
+        child: Text(
+          text,
+          textScaleFactor: 1.0,
+          style: textStyle,
+          maxLines: 2,
+        ),
+      ),
+    );
+  }
+}
+
 

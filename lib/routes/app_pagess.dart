@@ -10,6 +10,8 @@ import 'package:ask/views/auth/login/login.dart';
 import 'package:ask/views/auth/signup/sign_up.dart';
 import 'package:ask/views/auth/signup/signup2.dart';
 import 'package:ask/views/auth/signup_or_login.dart';
+import 'package:ask/views/discover/discover.dart';
+import 'package:ask/views/notification/notification.dart';
 import 'package:get/get.dart';
 
 import '../bindings/auth/login_binding.dart';
@@ -18,7 +20,7 @@ import '../views/auth/forogt_password/otp_screen.dart';
 import '../views/splash/splash_screen.dart';
 
 class AppPages {
-  static var initial = Routes.splash;
+  static var initial = Routes.discover;
   static final routes = [
     // <------ Splash Routes --------->
     GetPage(
@@ -85,6 +87,31 @@ class AppPages {
       // ],
 
     ),
+
+    //-------------------------Notification Screen------------
+    GetPage(
+      name: Routes.notification,
+      page: () => const NotificationScreen(),
+      // binding: OTPScreenBindings(),
+      // middlewares: [
+      //   RouteWelcomeMiddleware(priority: 1),
+      //
+      // ],
+
+    ),
+
+    //------------------------Discover Screen-----------
+    GetPage(
+      name: Routes.discover,
+      page: () => const DiscoverScreen(),
+      // binding: OTPScreenBindings(),
+      // middlewares: [
+      //   RouteWelcomeMiddleware(priority: 1),
+      //
+      // ],
+
+    ),
+
 
   ];
 }

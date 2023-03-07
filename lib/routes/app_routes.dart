@@ -6,6 +6,8 @@ class Routes {
   static const signUpScreen2 = '/signupscreen2';
   static const forgotPassword = '/forgotpassword';
   static const otp = '/otp';
+  static const notification="/notificationscreen";
+  static const discover="/discoverScreen";
 
 
 

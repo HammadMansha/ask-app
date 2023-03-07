@@ -13,6 +13,15 @@ class AppColors{
  //---------------------OTP screen pin fields-------------
  static const Color whiteColor = Colors.white;
 
+ //------------------Disocver Screen Color------------------
+ static final Color discoverBackgroundColor1 = Color(0xff8bdaa2).withOpacity(0.27);
+ static final Color discoverBackgroundColor2 = Color(0xff85baf8).withOpacity(0.68);
+ static final Color discoverbuttonGradint1 = Color(0xff85baf8).withOpacity(0.10);
+ static final Color discoverbuttonGradint2 = Color(0xff8bdaa2).withOpacity(0.10);
+
+
+
+
 
 
 }
