@@ -6,6 +6,7 @@ import 'package:ask/bindings/auth/signup_binding.dart';
 import 'package:ask/bindings/auth/singupScreen2.dart';
 import 'package:ask/routes/app_routes.dart';
 import 'package:ask/views/answer/answer.dart';
+import 'package:ask/views/ask_question/ask_question.dart';
 import 'package:ask/views/auth/forogt_password/forgot_password.dart';
 import 'package:ask/views/auth/login/login.dart';
 import 'package:ask/views/auth/signup/sign_up.dart';
@@ -22,7 +23,7 @@ import '../views/auth/forogt_password/otp_screen.dart';
 import '../views/splash/splash_screen.dart';
 
 class AppPages {
-  static var initial = Routes.inbox;
+  static var initial = Routes.askQuestion;
   static final routes = [
     // <------ Splash Routes --------->
     GetPage(
@@ -137,6 +138,19 @@ class AppPages {
       // ],
 
     ),
+
+    //-------------------Ask Question screen------------
+    GetPage(
+      name: Routes.askQuestion,
+      page: () => const AskQuestionScreen(),
+      // binding: OTPScreenBindings(),
+      // middlewares: [
+      //   RouteWelcomeMiddleware(priority: 1),
+      //
+      // ],
+
+    ),
+
 
 
 

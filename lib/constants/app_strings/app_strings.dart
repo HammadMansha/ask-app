@@ -53,6 +53,15 @@ static const String username="Jim.";
   static const String helpCentre="Help Center";
   static const String whatIsAsk="What is Ask?";
   //------------------------ Ask question screen------------
+  static const String ask="Ask a";
+  static const String question="Question?";
+  static const String selectCatogories="Select Category";
+  static const String addLocation="Add Location";
+  static const String askQuestion="Ask Question";
+  static const String typeYourQuestion="type your question here";
+
+
+
 
 
 

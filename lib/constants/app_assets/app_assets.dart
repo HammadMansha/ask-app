@@ -30,6 +30,12 @@ class AppAssets {
   static const String person = "$imageDir/person.png";
   static const String password = "$imageDir/password.png";
 
+  //-------------------Ask Question---------------
+  static const String cameraUploadImg = "$imageDir/camera_upload_image.png";
+
+  static const String img = "$imageDir/img.png";
+  static const String gif = "$imageDir/gif.png";
+
 
 
 }

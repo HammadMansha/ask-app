@@ -10,6 +10,7 @@ class Routes {
   static const discover="/discoverScreen";
   static const answer="/answerScreen";
   static const inbox="/inboxScreen";
+  static const askQuestion="/askQuestionscreen";
 
 
 

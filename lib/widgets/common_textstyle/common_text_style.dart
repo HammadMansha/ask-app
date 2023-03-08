@@ -8,6 +8,17 @@ class CommonTextStyle {
       letterSpacing: 0.4,
       fontSize: 13.0,
       fontWeight: FontWeight.w400);
+  static TextStyle style1withBlueColor = TextStyle(
+      color: AppColors.buttonColor,
+      letterSpacing: 0.4,
+      fontSize: 13.0,
+      fontWeight: FontWeight.w400);
+  static TextStyle style1withHintTextColor = TextStyle(
+      color: AppColors.welcomeToTextColor,
+      letterSpacing: 0.4,
+      fontSize: 13.0,
+      fontWeight: FontWeight.w400);
+
   static TextStyle style2 = TextStyle(
       color: AppColors.welcomeToTextColor,
       letterSpacing: 0.4,
