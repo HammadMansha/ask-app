@@ -14,49 +14,49 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: bodyData(context),
-      backgroundColor: Colors.white,
+    return bodyData(context);
+  }
 
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        leading: GestureDetector(
-          onTap: () {
-            Get.back();
-          },
-          child: const Icon(
-            Icons.arrow_back_ios_new,
-            size: 15,
-            color: Colors.black,
-          ),
-        ),
-
-      ),
+  Widget bodyData(context) {
+    return GetBuilder<NotificationController>(
+      init: NotificationController(),
+      builder: (_) {
+        return Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                AppStrings.turnOn,
+                style: CommonTextStyle.style2,
+              ).marginOnly(top: 50),
+              Text(
+                AppStrings.notifcations,
+                style: CommonTextStyle.style3,
+              ).marginOnly(top: 0),
+              Image.asset(AppAssets.notification).marginOnly(top: 22),
+              SizedBox(
+                width: 196,
+                child: CommonButton2(
+                  text: "Yes,Notify me",
+                  textStyle: CommonTextStyle.style1,
+                  onPressed: () {
+                    // Get.toNamed(Routes.discover);
+                  },
+                  fillColor: AppColors.buttonColor,
+                ),
+              ).marginOnly(top: 38),
+              CommonButton3(
+                text: "Not now",
+                textStyle: CommonTextStyle.style4,
+                onPressed: () {
+                  // Get.toNamed(Routes.discover);
+                },
+                fillColor: AppColors.whiteColor,
+              ).marginOnly(top: 19)
+            ],
+          ).marginOnly(left: 25, right: 25),
+        );
+      },
     );
   }
-  Widget bodyData(context){
-    return GetBuilder<NotificationController>(init: NotificationController(),builder: (_){
-      return Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("${AppStrings.turnOn}",style: CommonTextStyle.style2,).marginOnly(top: 50),
-            Text("${AppStrings.notifcations}",style: CommonTextStyle.style3,).marginOnly(top: 0),
-            Image.asset("${AppAssets.notification}").marginOnly(top: 22),
-            SizedBox(width:196,child: CommonButton2(text: "Yes,Notify me", textStyle: CommonTextStyle.style1, onPressed: (){
-              Get.toNamed(Routes.discover);
-
-            }, fillColor: AppColors.buttonColor)).marginOnly(top:
-            38),
-            CommonButton3(text: "Not now", textStyle: CommonTextStyle.style4, onPressed: (){
-              Get.toNamed(Routes.discover);
-            }, fillColor: AppColors.whiteColor).marginOnly(top: 19)
-
-          ],
-        ).marginOnly(left: 50),
-
-      );
-    });
-  }
-
 }

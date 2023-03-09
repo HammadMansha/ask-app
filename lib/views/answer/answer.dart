@@ -13,296 +13,263 @@ class AnswerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      body: SafeArea(
-        child: bodyData(context),
-      ),
-      appBar: AppBar(
-        backgroundColor: AppColors.discoverBackgroundColor1,
-        elevation: 0.0,
-      ),
-    );
+    return bodyData(context);
   }
 
   Widget bodyData(context) {
     return GetBuilder<AnswerController>(
-        init: AnswerController(),
-        builder: (_) {
-          return SingleChildScrollView(
-            child: Container(
-              height: Get.height,
-              width: Get.width,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.center,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    AppColors.discoverBackgroundColor1,
-                    AppColors.discoverBackgroundColor2
+      init: AnswerController(),
+      builder: (_) {
+        return SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                AppStrings.search,
+                style: CommonTextStyle.style2,
+              ),
+              SizedBox(
+                height: 44,
+                child: CommonTextField(
+                  controller: _.searchController,
+                  radius: 25.0,
+                  suffixicon: const Icon(Icons.search),
+                  bordercolor: AppColors.textFieldBorderColor,
+                  hintText: "Search Questions/ Users",
+                  fillcolor: AppColors.whiteColor,
+                ),
+              ).marginOnly(top: 45),
+              Container(
+                height: 35,
+                width: 174,
+                decoration: BoxDecoration(
+                  color: AppColors.buttonColor,
+                  // border: Border.all(
+                  //     color: Colors.white
+                  // ),
+                  borderRadius: BorderRadius.circular(55),
+                ),
+                child: Row(
+                  children: [
+                    Text(
+                      AppStrings.location,
+                      style: CommonTextStyle.style1,
+                    ).marginOnly(left: 18),
+                    const Spacer(),
+                    const Icon(
+                      Icons.keyboard_arrow_down,
+                      color: Colors.white,
+                      size: 18,
+                    ).marginOnly(right: 16)
                   ],
                 ),
-              ),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        //Image.asset("${AppAssets.drawer}"),
-                        Spacer(),
-                        Image.asset("${AppAssets.profilePic}"),
-                      ],
-                    ).marginOnly(right: 35),
-                    Text(
-                      "${AppStrings.search}",
-                      style: CommonTextStyle.style2,
-                    ),
-                    SizedBox(
-                      height: 44,
-                      child: CommonTextField(
-                        controller: _.searchController,
-                        radius: 25.0,
-                        bordercolor: AppColors.textFieldBorderColor,
-                        hintText: "Search Questions/ Users",
-                        fillcolor: AppColors.whiteColor,
-                      ),
-                    ).marginOnly(right: 33, top: 45),
-                    Container(
-                      height: 35,
-                      width: 174,
-                      decoration: BoxDecoration(
-                        color: AppColors.buttonColor,
-                        // border: Border.all(
-                        //     color: Colors.white
-                        // ),
-                        borderRadius: BorderRadius.circular(55),
-                      ),
-                      child: Row(
-                        children: [
-                          Text(
-                            "${AppStrings.location}",
-                            style: CommonTextStyle.style1,
-                          ).marginOnly(left: 18),
-                          Spacer(),
-                          Icon(
-                            Icons.keyboard_arrow_down,
-                            color: Colors.white,
-                            size: 18,
-                          ).marginOnly(right: 16)
+              ).marginOnly(top: 36, bottom: 36),
+              Row(
+                children: [
+                  Container(
+                    height: 140,
+                    width: Get.width / 2.6,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.center,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          AppColors.discoverBackgroundColor2,
+                          AppColors.discoverBackgroundColor1
                         ],
                       ),
-                    ).marginOnly(top: 36, bottom: 36),
+                      // border: Border.all(
+                      //     color: Colors.white
+                      // ),
 
-                    Row(
+                      borderRadius: BorderRadius.circular(19),
+                    ),
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          height: 140,
-                          width: Get.width/2.6,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.center,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                AppColors.discoverBackgroundColor2,
-                                AppColors.discoverBackgroundColor1
-                              ],
-                            ),
-                            // border: Border.all(
-                            //     color: Colors.white
-                            // ),
-
-                            borderRadius: BorderRadius.circular(19),
-                          ),
-                          child: Column(
-                            // mainAxisAlignment: MainAxisAlignment.center,
-                            // crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-
-                              Image.asset("${AppAssets.services}").marginOnly(bottom: 17,top: 32),
-                              Text("${AppStrings.services}",style: CommonTextStyle.style7font16weight700white,)
-
-
-
-                            ],
-                          ),
-                        ).marginOnly(left: 10),
-                        Container(
-                          height: 140,
-                          width: Get.width/2.6,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.center,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                AppColors.discoverBackgroundColor2,
-                                AppColors.discoverBackgroundColor1
-                              ],
-                            ),
-                            // border: Border.all(
-                            //     color: Colors.white
-                            // ),
-
-                            borderRadius: BorderRadius.circular(19),
-                          ),
-                          child: Column(
-                            children: [
-                              Image.asset("${AppAssets.product}").marginOnly(bottom: 17,top: 32),
-                              Text("${AppStrings.product}",style: CommonTextStyle.style7font16weight700white,)
-
-
-
-                            ],
-                          ),
-                        ).marginOnly(left: 10),
-
+                        Image.asset(AppAssets.services)
+                            .marginOnly(bottom: 17, top: 32),
+                        Text(
+                          AppStrings.services,
+                          style: CommonTextStyle.style7font16weight700white,
+                        )
                       ],
                     ),
-                    SizedBox(height: 24,),
-                    Row(
+                  ).marginOnly(left: 10),
+                  Container(
+                    height: 140,
+                    width: Get.width / 2.6,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.center,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          AppColors.discoverBackgroundColor2,
+                          AppColors.discoverBackgroundColor1
+                        ],
+                      ),
+                      // border: Border.all(
+                      //     color: Colors.white
+                      // ),
+
+                      borderRadius: BorderRadius.circular(19),
+                    ),
+                    child: Column(
                       children: [
-                        Container(
-                          height: 140,
-                          width: Get.width/2.6,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.center,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                AppColors.discoverBackgroundColor2,
-                                AppColors.discoverBackgroundColor1
-                              ],
-                            ),
-                            // border: Border.all(
-                            //     color: Colors.white
-                            // ),
-
-                            borderRadius: BorderRadius.circular(19),
-                          ),
-                          child: Column(
-                            // mainAxisAlignment: MainAxisAlignment.center,
-                            // crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-
-                              Image.asset("${AppAssets.technology}").marginOnly(bottom: 17,top: 32),
-                              Text("${AppStrings.technology}",style: CommonTextStyle.style7font16weight700white,)
-
-
-
-                            ],
-                          ),
-                        ).marginOnly(left: 10),
-                        Container(
-                          height: 140,
-                          width: Get.width/2.6,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.center,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                AppColors.discoverBackgroundColor2,
-                                AppColors.discoverBackgroundColor1
-                              ],
-                            ),
-                            // border: Border.all(
-                            //     color: Colors.white
-                            // ),
-
-                            borderRadius: BorderRadius.circular(19),
-                          ),
-                          child: Column(
-                            children: [
-                              Image.asset("${AppAssets.resturant}").marginOnly(bottom: 17,top: 32),
-                              Text("${AppStrings.restaurants}",style: CommonTextStyle.style7font16weight700white,)
-
-
-
-                            ],
-                          ),
-                        ).marginOnly(left: 10),
-
+                        Image.asset(AppAssets.product)
+                            .marginOnly(bottom: 17, top: 32),
+                        Text(
+                          AppStrings.product,
+                          style: CommonTextStyle.style7font16weight700white,
+                        )
                       ],
                     ),
-                    SizedBox(height: 24,),
-                    Row(
-
-                      children: [
-                        Container(
-                          height: 140,
-                          width: Get.width/2.6,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.center,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                AppColors.discoverBackgroundColor2,
-                                AppColors.discoverBackgroundColor1
-                              ],
-                            ),
-                            // border: Border.all(
-                            //     color: Colors.white
-                            // ),
-
-                            borderRadius: BorderRadius.circular(19),
-                          ),
-                          child: Column(
-                            // mainAxisAlignment: MainAxisAlignment.center,
-                            // crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-
-                              Image.asset("${AppAssets.handshake}").marginOnly(bottom: 17,top: 32),
-                              Text("${AppStrings.buyAndSell}",style: CommonTextStyle.style7font16weight700white,)
-
-
-
-                            ],
-                          ),
-                        ).marginOnly(left: 10),
-                        Container(
-                          height: 140,
-                          width: Get.width/2.6,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.center,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                AppColors.discoverBackgroundColor2,
-                                AppColors.discoverBackgroundColor1
-                              ],
-                            ),
-                            // border: Border.all(
-                            //     color: Colors.white
-                            // ),
-
-                            borderRadius: BorderRadius.circular(19),
-                          ),
-                          child: Column(
-                            children: [
-                              Image.asset("${AppAssets.threeHorizontalDote}").marginOnly(bottom: 17,top: 50),
-                              Text("${AppStrings.others}",style: CommonTextStyle.style7font16weight700white,)
-
-
-
-                            ],
-                          ),
-                        ).marginOnly(left: 10),
-
-                      ],
-                    ),
-                    SizedBox(height: 24,),
-
-
-
-
-
-
-
-
-                  ],
-                ).marginOnly(left: 32),
+                  ).marginOnly(left: 10),
+                ],
               ),
-            ),
-          );
-        });
+              const SizedBox(
+                height: 24,
+              ),
+              Row(
+                children: [
+                  Container(
+                    height: 140,
+                    width: Get.width / 2.6,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.center,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          AppColors.discoverBackgroundColor2,
+                          AppColors.discoverBackgroundColor1
+                        ],
+                      ),
+                      // border: Border.all(
+                      //     color: Colors.white
+                      // ),
+
+                      borderRadius: BorderRadius.circular(19),
+                    ),
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(AppAssets.technology)
+                            .marginOnly(bottom: 17, top: 32),
+                        Text(
+                          AppStrings.technology,
+                          style: CommonTextStyle.style7font16weight700white,
+                        )
+                      ],
+                    ),
+                  ).marginOnly(left: 10),
+                  Container(
+                    height: 140,
+                    width: Get.width / 2.6,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.center,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          AppColors.discoverBackgroundColor2,
+                          AppColors.discoverBackgroundColor1
+                        ],
+                      ),
+                      // border: Border.all(
+                      //     color: Colors.white
+                      // ),
+
+                      borderRadius: BorderRadius.circular(19),
+                    ),
+                    child: Column(
+                      children: [
+                        Image.asset(AppAssets.resturant)
+                            .marginOnly(bottom: 17, top: 32),
+                        Text(
+                          AppStrings.restaurants,
+                          style: CommonTextStyle.style7font16weight700white,
+                        )
+                      ],
+                    ),
+                  ).marginOnly(left: 10),
+                ],
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+              Row(
+                children: [
+                  Container(
+                    height: 140,
+                    width: Get.width / 2.6,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.center,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          AppColors.discoverBackgroundColor2,
+                          AppColors.discoverBackgroundColor1
+                        ],
+                      ),
+                      // border: Border.all(
+                      //     color: Colors.white
+                      // ),
+
+                      borderRadius: BorderRadius.circular(19),
+                    ),
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(AppAssets.handshake)
+                            .marginOnly(bottom: 17, top: 32),
+                        Text(
+                          AppStrings.buyAndSell,
+                          style: CommonTextStyle.style7font16weight700white,
+                        )
+                      ],
+                    ),
+                  ).marginOnly(left: 10),
+                  Container(
+                    height: 140,
+                    width: Get.width / 2.6,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.center,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          AppColors.discoverBackgroundColor2,
+                          AppColors.discoverBackgroundColor1
+                        ],
+                      ),
+                      // border: Border.all(
+                      //     color: Colors.white
+                      // ),
+
+                      borderRadius: BorderRadius.circular(19),
+                    ),
+                    child: Column(
+                      children: [
+                        Image.asset(AppAssets.threeHorizontalDote)
+                            .marginOnly(bottom: 17, top: 50),
+                        Text(
+                          AppStrings.others,
+                          style: CommonTextStyle.style7font16weight700white,
+                        )
+                      ],
+                    ),
+                  ).marginOnly(left: 10),
+                ],
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+            ],
+          ).marginOnly(left: 25, right: 25),
+        );
+      },
+    );
   }
 }

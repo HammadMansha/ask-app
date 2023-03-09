@@ -23,13 +23,16 @@ class AppAssets {
   static const String technology = "$imageDir/technology.png";
   static const String resturant = "$imageDir/resturant.png";
   static const String handshake = "$imageDir/handshake.png";
-  static const String threeHorizontalDote = "$imageDir/horizontal_three_dots.png";
+  static const String threeHorizontalDote =
+      "$imageDir/horizontal_three_dots.png";
 
   //------------------------------Drawer----------------------
   static const String help = "$imageDir/help.png";
   static const String person = "$imageDir/person.png";
   static const String password = "$imageDir/password.png";
 
-
-
+  //-------------------Ask Question---------------
+  static const String cameraUploadImg = "$imageDir/camera_upload_image.png";
+  static const String avatar =
+      'https://www.getillustrations.com/packs/3d-avatar-illustrations/male/_1x/Avatar,%203D%20_%20man,%20male,%20people,%20person,%20turtleneck,%20expression,%20emotion_md.png';
 }

@@ -14,7 +14,7 @@ class CommonButton extends StatelessWidget {
     required this.text,
     required this.textStyle,
     required this.onPressed,
-    required this.fillColor
+    this.fillColor = Colors.transparent
   });
 
   @override
@@ -26,7 +26,7 @@ class CommonButton extends StatelessWidget {
       child: MaterialButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(7.0),
-          side:  BorderSide(
+          side:  const BorderSide(
             color:AppColors.buttonColor,
           ),
         ),
@@ -35,7 +35,7 @@ class CommonButton extends StatelessWidget {
         // minWidth: Get.width / 3,
         // height: 42,
         // color: Color.fromRGBO(72, 190, 235, 1),
-        color: fillColor?? Colors.transparent,
+        color: fillColor,
         child: Text(
           text,
           textScaleFactor: 1.0,
@@ -72,7 +72,7 @@ class CommonButton2 extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(7.0),
           side:  BorderSide(
-            color: Color(0xff0c473c).withOpacity(0.29),
+            color: const Color(0xff0c473c).withOpacity(0.29),
           ),
         ),
 
@@ -80,7 +80,7 @@ class CommonButton2 extends StatelessWidget {
         // minWidth: Get.width / 3,
         // height: 42,
         // color: Color.fromRGBO(72, 190, 235, 1),
-        color: fillColor?? Colors.transparent,
+        color: fillColor,
         child: Text(
           text,
           textScaleFactor: 1.0,
@@ -118,7 +118,7 @@ class CommonButton3 extends StatelessWidget {
       child: MaterialButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(7.0),
-          side:  BorderSide(
+          side:  const BorderSide(
             color: Colors.black,
             width: 3,
           ),
@@ -128,7 +128,7 @@ class CommonButton3 extends StatelessWidget {
         // minWidth: Get.width / 3,
         // height: 42,
         // color: Color.fromRGBO(72, 190, 235, 1),
-        color: fillColor?? Colors.transparent,
+        color: fillColor,
         child: Text(
           text,
           textScaleFactor: 1.0,
@@ -175,14 +175,14 @@ class CommonButton4 extends StatelessWidget {
       child: MaterialButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
-          side:  BorderSide(
+          side:  const BorderSide(
             color: Colors.transparent,
             width: 3,
           ),
         ),
 
         onPressed: onPressed,
-        color: fillColor?? Colors.transparent,
+        color: fillColor,
 
         // minWidth: Get.width / 3,
         // height: 42,

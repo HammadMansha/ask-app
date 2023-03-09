@@ -52,6 +52,7 @@ dev_dependencies:
   get_storage: ^2.1.1
   pin_code_fields: ^7.4.0
   intro_screen_onboarding_flutter: ^1.0.0
+  flutter_switch: ^0.3.2
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

@@ -6,11 +6,8 @@ class Routes {
   static const signUpScreen2 = '/signupscreen2';
   static const forgotPassword = '/forgotpassword';
   static const otp = '/otp';
-  static const notification="/notificationscreen";
-  static const discover="/discoverScreen";
-  static const answer="/answerScreen";
-  static const inbox="/inboxScreen";
-
-
-
+  static const dashboard ="/dashboardRoute";
+  static const editProfile ="/editProfileRoute";
+  static const helpCenter ="/helpCenterRoute";
+  static const notificationSettingScreen ="/notificationSettingScreenRoute";
 }

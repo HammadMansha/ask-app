@@ -5,24 +5,22 @@ import 'package:ask/bindings/auth/otpscreen_bindings.dart';
 import 'package:ask/bindings/auth/signup_binding.dart';
 import 'package:ask/bindings/auth/singupScreen2.dart';
 import 'package:ask/routes/app_routes.dart';
-import 'package:ask/views/answer/answer.dart';
 import 'package:ask/views/auth/forogt_password/forgot_password.dart';
 import 'package:ask/views/auth/login/login.dart';
 import 'package:ask/views/auth/signup/sign_up.dart';
 import 'package:ask/views/auth/signup/signup2.dart';
 import 'package:ask/views/auth/signup_or_login.dart';
-import 'package:ask/views/discover/discover.dart';
-import 'package:ask/views/inbox/inbox_screen.dart';
-import 'package:ask/views/notification/notification.dart';
+import 'package:ask/views/dashboard/dashboard.dart';
+import 'package:ask/views/drawer_items/editprofile.dart';
+import 'package:ask/views/drawer_items/helpcenter.dart';
+import 'package:ask/views/drawer_items/notification_setting.dart';
 import 'package:get/get.dart';
 
-import '../bindings/auth/login_binding.dart';
-import '../middlewears/auth/auth_middlewear.dart';
 import '../views/auth/forogt_password/otp_screen.dart';
 import '../views/splash/splash_screen.dart';
 
 class AppPages {
-  static var initial = Routes.inbox;
+  static var initial = Routes.splash;
   static final routes = [
     // <------ Splash Routes --------->
     GetPage(
@@ -92,51 +90,29 @@ class AppPages {
 
     //-------------------------Notification Screen------------
     GetPage(
-      name: Routes.notification,
-      page: () => const NotificationScreen(),
-      // binding: OTPScreenBindings(),
-      // middlewares: [
-      //   RouteWelcomeMiddleware(priority: 1),
-      //
-      // ],
+      name: Routes.dashboard,
+      page: () => const Dashboard(),
 
     ),
 
-    //------------------------Discover Screen-----------
+    //-------------------------Edit Profile Screen------------
     GetPage(
-      name: Routes.discover,
-      page: () =>  DiscoverScreen(),
-      // binding: OTPScreenBindings(),
-      // middlewares: [
-      //   RouteWelcomeMiddleware(priority: 1),
-      //
-      // ],
-
+      name: Routes.editProfile,
+      page: () => const EditProfileScreen(),
     ),
-    //-----------------------Answer Screen--------------
 
+    //-------------------------Help Center Screen------------
     GetPage(
-      name: Routes.answer,
-      page: () => const AnswerScreen(),
-      // binding: OTPScreenBindings(),
-      // middlewares: [
-      //   RouteWelcomeMiddleware(priority: 1),
-      //
-      // ],
-
+      name: Routes.helpCenter,
+      page: () => const HelpCenterScreen(),
     ),
 
-    //----------------------Inbox Screen------------
+    //-------------------------Notifcation Setting Screen------------
     GetPage(
-      name: Routes.inbox,
-      page: () => const InboxScreen(),
-      // binding: OTPScreenBindings(),
-      // middlewares: [
-      //   RouteWelcomeMiddleware(priority: 1),
-      //
-      // ],
-
+      name: Routes.notificationSettingScreen,
+      page: () => const NotificationSettingScreen(),
     ),
+
 
 
 

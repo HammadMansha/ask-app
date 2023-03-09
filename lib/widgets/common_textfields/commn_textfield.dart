@@ -80,12 +80,12 @@ class CommonTextField extends StatelessWidget {
         //suffix:suffixicon,
         prefixIcon: prefixIcon != null
             ? GestureDetector(
+                onTap: prefixIconTap,
                 child: Icon(
                   prefixIcon,
                   color: Colors.black,
                   size: 20.0,
                 ),
-                onTap: prefixIconTap,
               )
             : null,
         suffixIcon: suffixicon,
@@ -108,7 +108,7 @@ class CommonTextField extends StatelessWidget {
         hintText: hintText,
         fillColor: fillcolor,
         filled: true,
-        hintStyle: TextStyle(color: AppColors.welcomeToTextColor, fontSize: 12),
+        hintStyle: const TextStyle(color: AppColors.welcomeToTextColor, fontSize: 12),
         // contentPadding:
         //     const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         labelText: labelText,

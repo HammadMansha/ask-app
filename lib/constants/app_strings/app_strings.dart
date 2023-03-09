@@ -53,7 +53,12 @@ static const String username="Jim.";
   static const String helpCentre="Help Center";
   static const String whatIsAsk="What is Ask?";
   //------------------------ Ask question screen------------
-
+  static const String ask="Ask a";
+  static const String question="Question?";
+  static const String selectCatogories="Select Category";
+  static const String addLocation="Add Location";
+  static const String askQuestion="Ask Question";
+  static const String typeYourQuestion="type your question here";
 
 
 
@@ -62,6 +67,22 @@ static const String username="Jim.";
   static const String received="Received";
   static const String sent="Sent";
   static const String answerQuestion="Answer Question";
+
+
+//----------------------Edit Profile Screen text----------------
+  static const String heading = "Edit Profile";
+  static const String upload = "Upload Cover";
+
+  //----------------------Help Center Screen text----------------
+  static const String hheading = "Help Center";
+
+    //---------------------- Notification Screen text----------------
+  static const String nheading = "Edit Notifications";
+  static const String option1 = "New Question";
+  static const String option2 = "New Like";
+  static const String option3 = "New Answer";
+  static const String option4 = "New Mention";
+  static const String option5 = "New Follower";
 
 
 

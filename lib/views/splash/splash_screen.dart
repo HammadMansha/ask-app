@@ -31,7 +31,7 @@ class SplashScreen extends StatelessWidget {
   }
 
   Widget bodyData(context) {
-    Future. delayed(Duration(seconds: 2), ()
+    Future. delayed(const Duration(seconds: 2), ()
     {
       Get.toNamed(Routes.signupOrLogin);
     });     

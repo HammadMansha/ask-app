@@ -9,7 +9,6 @@ class AppColors{
  static const Color textFieldBorderColor = Color(0xffe2e2e2);
  static const Color hintTextColor = Color(0xffe2e2e2);
  static const Color rememberPasswordColor = Color(0xff1e1e1e);
-
  //---------------------OTP screen pin fields-------------
  static const Color whiteColor = Colors.white;
 

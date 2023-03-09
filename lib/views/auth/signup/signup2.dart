@@ -44,8 +44,8 @@ class SignUpScreen2 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
 
             children: [
-              Text("${AppStrings.letsGet}",style: CommonTextStyle.style2,).marginOnly(top: 50,left: 50),
-              Text("${AppStrings.signUp}",style: CommonTextStyle.style3,).marginOnly(top: 0,left: 50),
+              Text(AppStrings.letsGet,style: CommonTextStyle.style2,).marginOnly(top: 50,left: 50),
+              Text(AppStrings.signUp,style: CommonTextStyle.style3,).marginOnly(top: 0,left: 50),
               CommonTextField(
                 controller: _.firstName,
                 hintText: "First Name",
