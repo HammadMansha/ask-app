@@ -48,7 +48,7 @@ class ForogotPassword extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
 
             children: [
-              Text("${AppStrings.forgetPassword}",style: CommonTextStyle.style2,).marginOnly(top: 50,left: 50),
+              Text(AppStrings.forgetPassword,style: CommonTextStyle.style2,).marginOnly(top: 50,left: 50),
               CommonTextField(
                 controller: _.email,
                 hintText: "Email",
@@ -61,7 +61,7 @@ class ForogotPassword extends StatelessWidget {
                   Get.toNamed(Routes.otp);
                 }, fillColor: AppColors.buttonColor),
               ).marginOnly(top: 36),
-              Center(child: Image.asset("${AppAssets.colorfulAsk}",height: 30,width: 30,),).marginOnly(top: Get.height/3),
+              Center(child: Image.asset(AppAssets.colorfulAsk,height: 30,width: 30,),).marginOnly(top: Get.height/3),
 
 
             ],

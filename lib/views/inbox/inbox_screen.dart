@@ -70,7 +70,7 @@ class InboxScreen extends StatelessWidget {
                       height: 40,
                       child: Center(
                           child: Text(
-                        AppStrings.inbox,
+                        AppStrings.sent,
                         style: _.tapFunction == 1
                             ? CommonTextStyle.style4
                             : CommonTextStyle.style1,

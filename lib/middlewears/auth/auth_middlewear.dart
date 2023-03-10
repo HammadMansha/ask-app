@@ -1,3 +1,5 @@
+// ignore_for_file: overridden_fields
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -8,7 +10,7 @@ class RouteWelcomeMiddleware extends GetMiddleware with LocalStorage{
   // priority this value the smaller the better
   @override
   int? priority = 0;
-GetStorage localStorage=GetStorage();
+  GetStorage localStorage=GetStorage();
 
   RouteWelcomeMiddleware({required this.priority});
 
@@ -19,9 +21,9 @@ bool isAppOpen=    localStorage.read("isAppOpen");
     if (isAppOpen== false) {
       return null;
     } else if (isAppOpen == true) {
-      return RouteSettings(name:Routes.login);
+      return const RouteSettings(name:Routes.login);
     } else {
-      return RouteSettings(name: Routes.splash);
+      return const RouteSettings(name: Routes.splash);
     }
   }
 }

@@ -1,9 +1,4 @@
 
-
-import 'package:ask/bindings/auth/forgotpassword_binding.dart';
-import 'package:ask/bindings/auth/otpscreen_bindings.dart';
-import 'package:ask/bindings/auth/signup_binding.dart';
-import 'package:ask/bindings/auth/singupScreen2.dart';
 import 'package:ask/routes/app_routes.dart';
 import 'package:ask/views/auth/forogt_password/forgot_password.dart';
 import 'package:ask/views/auth/login/login.dart';
@@ -14,6 +9,8 @@ import 'package:ask/views/dashboard/dashboard.dart';
 import 'package:ask/views/drawer_items/editprofile.dart';
 import 'package:ask/views/drawer_items/helpcenter.dart';
 import 'package:ask/views/drawer_items/notification_setting.dart';
+import 'package:ask/views/info/info.dart';
+import 'package:ask/views/profile/profile.dart';
 import 'package:get/get.dart';
 
 import '../views/auth/forogt_password/otp_screen.dart';
@@ -113,8 +110,17 @@ class AppPages {
       page: () => const NotificationSettingScreen(),
     ),
 
+    //------------------------- Profile Screen------------
+    GetPage(
+      name: Routes.profileScreen,
+      page: () => const Profile(),
+    ),
 
-
+    //------------------------- Info Screen------------
+    GetPage(
+      name: Routes.infoScreen,
+      page: () => const InfoScreen(),
+    )
 
   ];
 }

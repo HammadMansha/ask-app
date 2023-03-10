@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants/app_strings/app_strings.dart';
-import '../../routes/app_routes.dart';
 import '../../widgets/common_textstyle/common_text_style.dart';
 
 class NotificationScreen extends StatelessWidget {

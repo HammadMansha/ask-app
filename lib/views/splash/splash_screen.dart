@@ -1,10 +1,8 @@
 import 'package:ask/constants/app_assets/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intro_screen_onboarding_flutter/circle_progress_bar.dart';
 import 'package:intro_screen_onboarding_flutter/intro_app.dart';
 import 'package:intro_screen_onboarding_flutter/introduction.dart';
-import 'package:intro_screen_onboarding_flutter/introscreenonboarding.dart';
 
 import '../../routes/app_routes.dart';
 

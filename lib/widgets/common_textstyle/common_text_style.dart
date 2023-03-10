@@ -70,4 +70,43 @@ class CommonTextStyle {
     fontSize: 14.0,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle profileTextColor = const TextStyle(
+    color: AppColors.welcomeToTextColor,
+    letterSpacing: 0.4,
+    fontSize: 24.0,
+    fontWeight: FontWeight.w500,
+  );
+  static TextStyle profileUsername = const TextStyle(
+    color: AppColors.buttonColor,
+    letterSpacing: 0.4,
+    fontSize: 14.0,
+    fontWeight: FontWeight.w300,
+  );
+  static TextStyle profileinfo = const TextStyle(
+    color: AppColors.textcolor,
+    letterSpacing: 0.4,
+    fontSize: 12.0,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle profileSubinfo = const TextStyle(
+    color: AppColors.buttonColor,
+    letterSpacing: 0.4,
+    fontSize: 14.0,
+    fontWeight: FontWeight.w700,
+  );
+
+  static TextStyle profileBio = const TextStyle(
+    color: AppColors.welcomeToTextColor,
+    letterSpacing: 0.4,
+    fontSize: 12.0,
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle infoText = const TextStyle(
+    color: AppColors.welcomeToTextColor,
+    letterSpacing: 0.4,
+    fontSize: 14.0,
+    fontWeight: FontWeight.w400,
+  );
 }

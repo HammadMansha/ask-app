@@ -1,5 +1,6 @@
 import 'package:ask/constants/app_assets/app_assets.dart';
 import 'package:ask/constants/app_colors/app_colors.dart';
+import 'package:ask/routes/app_routes.dart';
 import 'package:ask/utils/drawer.dart';
 import 'package:ask/views/answer/answer.dart';
 import 'package:ask/views/inbox/inbox_screen.dart';
@@ -47,7 +48,12 @@ class Dashboard extends StatelessWidget {
               actions: _.currentindex == 4 || _.currentindex == 2
                   ? []
                   : [
-                      Image.asset(AppAssets.profilePic),
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.profileScreen);
+                        },
+                        child: Image.asset(AppAssets.profilePic),
+                      ),
                     ],
             ),
             drawer: _.currentindex == 0 ? const DrawerUtils() : null,

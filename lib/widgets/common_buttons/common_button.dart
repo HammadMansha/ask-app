@@ -196,7 +196,53 @@ class CommonButton4 extends StatelessWidget {
         ),
       ),
     );
+  }  
+}
+
+class ViewProfileButton extends StatelessWidget {
+  final String text;
+  final TextStyle textStyle;
+  final void Function() onPressed;
+  final Color fillColor;
+
+  // ignore: use_key_in_widget_constructors
+  const ViewProfileButton({
+    required this.text,
+    required this.textStyle,
+    required this.onPressed,
+    this.fillColor = Colors.transparent
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      //color: CommonColor.loginAndSendCodeButtonColor,
+      width: 114,
+      height: 24,
+      child: MaterialButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(7.0),
+          side:  const BorderSide(
+            color:AppColors.buttonColor,
+          ),
+        ),
+
+        onPressed: onPressed,
+        // minWidth: Get.width / 3,
+        // height: 42,
+        // color: Color.fromRGBO(72, 190, 235, 1),
+        color: fillColor,
+        child: Text(
+          text,
+          textScaleFactor: 1.0,
+          style: textStyle,
+          maxLines: 1,
+        ),
+      ),
+    );
   }
 }
+
+
 
 

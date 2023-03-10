@@ -10,4 +10,6 @@ class Routes {
   static const editProfile ="/editProfileRoute";
   static const helpCenter ="/helpCenterRoute";
   static const notificationSettingScreen ="/notificationSettingScreenRoute";
+  static const profileScreen ="/profileRoute";
+  static const infoScreen ="/infoRoute";
 }

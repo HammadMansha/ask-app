@@ -18,14 +18,14 @@ class SignupOrLogin extends StatelessWidget {
   }
   Widget bodyData(context){
     return GetBuilder<SignupOrLoginController>(init: SignupOrLoginController(),builder: (_) {
-        return Container(
+        return SizedBox(
           height: Get.height,
           width: Get.width,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("${AppStrings.welcomeTo}",style: CommonTextStyle.style2,),
+              Text(AppStrings.welcomeTo,style: CommonTextStyle.style2,),
               Image.asset(AppAssets.colorfulAsk).marginOnly(top: 32,bottom: 100),
               CommonButton2(text: "Sign up", textStyle: CommonTextStyle.style1, onPressed: (){
 

@@ -1,7 +1,6 @@
 import 'package:ask/constants/app_assets/app_assets.dart';
 import 'package:ask/constants/app_colors/app_colors.dart';
 import 'package:ask/constants/app_strings/app_strings.dart';
-import 'package:ask/widgets/common_buttons/common_button.dart';
 import 'package:ask/widgets/common_textstyle/common_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,97 +28,98 @@ class DiscoverScreen extends StatelessWidget {
                 style: CommonTextStyle.style2,
               ),
               Center(
-                  child: Container(
-                width: Get.width / 1.7,
-                height: 45,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(color: Colors.white),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        _.tapFunction = 0;
-                        _.update();
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          gradient: _.tapFunction == 0
-                              ? LinearGradient(
-                                  begin: Alignment.center,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Colors.indigoAccent.shade100,
-                                    Colors.green.shade100
-                                  ],
-                                )
-                              : const LinearGradient(
-                                  begin: Alignment.center,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Colors.white,
-                                    Colors.white,
-                                  ],
-                                ),
-                        ),
-                        width: Get.width / 3.7,
-                        height: 40,
-                        child: Center(
-                            child: Text(
-                          AppStrings.public,
-                          style: _.tapFunction == 1
-                              ? CommonTextStyle.style4
-                              : CommonTextStyle.style1,
-                        )),
-                      ),
-                    ),
-                    const Spacer(),
-                    GestureDetector(
-                      onTap: () {
-                        _.tapFunction = 1;
-                        _.update();
-                      },
-                      child: Container(
-                        width: Get.width / 3.7,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          gradient: _.tapFunction == 1
-                              ? LinearGradient(
-                                  begin: Alignment.center,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Colors.indigoAccent.shade100,
-                                    Colors.green.shade100
-                                  ],
-                                )
-                              : const LinearGradient(
-                                  begin: Alignment.center,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Colors.white,
-                                    Colors.white,
-                                  ],
-                                ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            AppStrings.follower,
+                child: Container(
+                  width: Get.width / 1.7,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          _.tapFunction = 0;
+                          _.update();
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            gradient: _.tapFunction == 0
+                                ? LinearGradient(
+                                    begin: Alignment.center,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Colors.indigoAccent.shade100,
+                                      Colors.green.shade100
+                                    ],
+                                  )
+                                : const LinearGradient(
+                                    begin: Alignment.center,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Colors.white,
+                                      Colors.white,
+                                    ],
+                                  ),
+                          ),
+                          width: Get.width / 3.7,
+                          height: 40,
+                          child: Center(
+                              child: Text(
+                            AppStrings.public,
                             style: _.tapFunction == 1
-                                ? CommonTextStyle.style1
-                                : CommonTextStyle.style4,
+                                ? CommonTextStyle.style4
+                                : CommonTextStyle.style1,
+                          )),
+                        ),
+                      ),
+                      const Spacer(),
+                      GestureDetector(
+                        onTap: () {
+                          _.tapFunction = 1;
+                          _.update();
+                        },
+                        child: Container(
+                          width: Get.width / 3.7,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                            gradient: _.tapFunction == 1
+                                ? LinearGradient(
+                                    begin: Alignment.center,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Colors.indigoAccent.shade100,
+                                      Colors.green.shade100
+                                    ],
+                                  )
+                                : const LinearGradient(
+                                    begin: Alignment.center,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Colors.white,
+                                      Colors.white,
+                                    ],
+                                  ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              AppStrings.follower,
+                              style: _.tapFunction == 1
+                                  ? CommonTextStyle.style1
+                                  : CommonTextStyle.style4,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ).marginOnly(bottom: 2, top: 2),
-              ).marginOnly(top: 26)),
+                    ],
+                  ).marginOnly(bottom: 2, top: 2),
+                ).marginOnly(top: 26),
+              ),
               Expanded(
                 child: ListView.separated(
                   itemCount: 3,

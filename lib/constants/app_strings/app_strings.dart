@@ -7,7 +7,7 @@ class AppStrings{
 
   //-----------------------------Sign up screen text------------
   static const String letsGet="Let's get you";
-  static const String SignedUp="Signed up";
+  static const String signedUp="Signed up";
   static const String continu="Continue";
 
   //------------------------Login screen text--------------

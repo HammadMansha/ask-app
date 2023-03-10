@@ -13,11 +13,12 @@ class AppColors{
  static const Color whiteColor = Colors.white;
 
  //------------------Disocver Screen Color------------------
- static final Color discoverBackgroundColor1 = Color(0xff8bdaa2).withOpacity(0.27);
- static final Color discoverBackgroundColor2 = Color(0xff85baf8).withOpacity(0.68);
- static final Color discoverbuttonGradint1 = Color(0xff85baf8).withOpacity(0.10);
- static final Color discoverbuttonGradint2 = Color(0xff8bdaa2).withOpacity(0.10);
+ static final Color discoverBackgroundColor1 = const Color(0xff8bdaa2).withOpacity(0.27);
+ static final Color discoverBackgroundColor2 = const Color(0xff85baf8).withOpacity(0.68);
+ static final Color discoverbuttonGradint1 = const Color(0xff85baf8).withOpacity(0.10);
+ static final Color discoverbuttonGradint2 = const Color(0xff8bdaa2).withOpacity(0.10);
  static const Color black = Colors.black;
+ static const Color textcolor = Color(0xff1E1E1E);
 
 
 

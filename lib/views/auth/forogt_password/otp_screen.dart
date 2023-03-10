@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:pin_code_fields/pin_code_fields.dart';
-import '../../../constants/app_assets/app_assets.dart';
 import '../../../controllers/auth/forgotpassword/otpscreen_controller.dart';
 
 class OTPScreen extends StatelessWidget {
@@ -49,11 +48,11 @@ class OTPScreen extends StatelessWidget {
               width: Get.width / 1.8,
               child: PinCodeTextField(
                 appContext: context,
-                pastedTextStyle: TextStyle(
+                pastedTextStyle: const TextStyle(
                     color: Colors.white, fontSize: 11),
                 length: 4,
                 animationType: AnimationType.fade,
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                     letterSpacing: 0.4,
                     color: Colors.white,
                     fontSize: 11),
@@ -116,7 +115,7 @@ class OTPScreen extends StatelessWidget {
               onTap:(){
               },
               child: Center(
-                child: Text("Resend OTP").marginOnly(top: 68,bottom: 36),
+                child: const Text("Resend OTP").marginOnly(top: 68,bottom: 36),
 
 
               ),
