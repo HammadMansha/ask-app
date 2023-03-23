@@ -117,12 +117,12 @@ class AskQuestionScreen extends StatelessWidget {
                 Row(
                   children: [
                     const Icon(
-                      Icons.image,
+                      Icons.image_outlined,
                       size: 30,
                       color: Color(0xff85BAF8),
                     ).marginOnly(right: 10),
                     const Icon(
-                      Icons.gif_box,
+                      Icons.gif_box_outlined,
                       size: 30,
                       color: Color(0xff85BAF8),
                     )

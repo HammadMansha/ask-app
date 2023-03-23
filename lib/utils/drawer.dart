@@ -18,7 +18,11 @@ class DrawerUtils extends StatelessWidget {
         children: [
           const SizedBox(height: 200),
           ListTile(
-            leading: Image.asset(AppAssets.person),
+            leading: Image.asset(
+              AppAssets.person,
+              width: 17.09,
+              height: 16.49,
+            ),
             onTap: () {
               Get.toNamed(Routes.editProfile);
             },
@@ -52,7 +56,14 @@ class DrawerUtils extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Image.asset(AppAssets.password),
+            leading: Image.asset(
+              AppAssets.password,
+              width: 17.09,
+              height: 22.43,
+            ),
+            onTap: () {
+              Get.toNamed(Routes.resetpasswordScreen);
+            },
             title: Text(
               AppStrings.passwordSetting,
               style: CommonTextStyle.style4,
@@ -64,7 +75,11 @@ class DrawerUtils extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Image.asset(AppAssets.help),
+            leading: Image.asset(
+              AppAssets.help,
+              height: 21.4,
+              width: 21.4,
+            ),
             onTap: () {
               Get.toNamed(Routes.helpCenter);
             },

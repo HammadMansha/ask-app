@@ -1,5 +1,6 @@
 import 'package:ask/constants/app_strings/app_strings.dart';
 import 'package:ask/controllers/answer/answer_controller.dart';
+import 'package:ask/routes/app_routes.dart';
 import 'package:ask/widgets/common_textfields/commn_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -45,9 +46,6 @@ class AnswerScreen extends StatelessWidget {
                 width: 174,
                 decoration: BoxDecoration(
                   color: AppColors.buttonColor,
-                  // border: Border.all(
-                  //     color: Colors.white
-                  // ),
                   borderRadius: BorderRadius.circular(55),
                 ),
                 child: Row(
@@ -66,201 +64,57 @@ class AnswerScreen extends StatelessWidget {
                 ),
               ).marginOnly(top: 36, bottom: 36),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    height: 140,
-                    width: Get.width / 2.6,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.center,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          AppColors.discoverBackgroundColor2,
-                          AppColors.discoverBackgroundColor1
-                        ],
-                      ),
-                      // border: Border.all(
-                      //     color: Colors.white
-                      // ),
-
-                      borderRadius: BorderRadius.circular(19),
-                    ),
-                    child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      // crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(AppAssets.services)
-                            .marginOnly(bottom: 17, top: 32),
-                        Text(
-                          AppStrings.services,
-                          style: CommonTextStyle.style7font16weight700white,
-                        )
-                      ],
-                    ),
-                  ).marginOnly(left: 10),
-                  Container(
-                    height: 140,
-                    width: Get.width / 2.6,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.center,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          AppColors.discoverBackgroundColor2,
-                          AppColors.discoverBackgroundColor1
-                        ],
-                      ),
-                      // border: Border.all(
-                      //     color: Colors.white
-                      // ),
-
-                      borderRadius: BorderRadius.circular(19),
-                    ),
-                    child: Column(
-                      children: [
-                        Image.asset(AppAssets.product)
-                            .marginOnly(bottom: 17, top: 32),
-                        Text(
-                          AppStrings.product,
-                          style: CommonTextStyle.style7font16weight700white,
-                        )
-                      ],
-                    ),
-                  ).marginOnly(left: 10),
+                  category(
+                    imageName: AppAssets.services,
+                    heading: AppStrings.services,
+                  ),
+                  const SizedBox(
+                    width: 24.0,
+                  ),
+                  category(
+                    imageName: AppAssets.product,
+                    heading: AppStrings.product,
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 24,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    height: 140,
-                    width: Get.width / 2.6,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.center,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          AppColors.discoverBackgroundColor2,
-                          AppColors.discoverBackgroundColor1
-                        ],
-                      ),
-                      // border: Border.all(
-                      //     color: Colors.white
-                      // ),
-
-                      borderRadius: BorderRadius.circular(19),
-                    ),
-                    child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      // crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(AppAssets.technology)
-                            .marginOnly(bottom: 17, top: 32),
-                        Text(
-                          AppStrings.technology,
-                          style: CommonTextStyle.style7font16weight700white,
-                        )
-                      ],
-                    ),
-                  ).marginOnly(left: 10),
-                  Container(
-                    height: 140,
-                    width: Get.width / 2.6,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.center,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          AppColors.discoverBackgroundColor2,
-                          AppColors.discoverBackgroundColor1
-                        ],
-                      ),
-                      // border: Border.all(
-                      //     color: Colors.white
-                      // ),
-
-                      borderRadius: BorderRadius.circular(19),
-                    ),
-                    child: Column(
-                      children: [
-                        Image.asset(AppAssets.resturant)
-                            .marginOnly(bottom: 17, top: 32),
-                        Text(
-                          AppStrings.restaurants,
-                          style: CommonTextStyle.style7font16weight700white,
-                        )
-                      ],
-                    ),
-                  ).marginOnly(left: 10),
+                  category(
+                    imageName: AppAssets.technology,
+                    heading: AppStrings.technology,
+                  ),
+                  const SizedBox(
+                    width: 24.0,
+                  ),
+                  category(
+                    imageName: AppAssets.resturant,
+                    heading: AppStrings.restaurants,
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 24,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    height: 140,
-                    width: Get.width / 2.6,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.center,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          AppColors.discoverBackgroundColor2,
-                          AppColors.discoverBackgroundColor1
-                        ],
-                      ),
-                      // border: Border.all(
-                      //     color: Colors.white
-                      // ),
-
-                      borderRadius: BorderRadius.circular(19),
-                    ),
-                    child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      // crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(AppAssets.handshake)
-                            .marginOnly(bottom: 17, top: 32),
-                        Text(
-                          AppStrings.buyAndSell,
-                          style: CommonTextStyle.style7font16weight700white,
-                        )
-                      ],
-                    ),
-                  ).marginOnly(left: 10),
-                  Container(
-                    height: 140,
-                    width: Get.width / 2.6,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.center,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          AppColors.discoverBackgroundColor2,
-                          AppColors.discoverBackgroundColor1
-                        ],
-                      ),
-                      // border: Border.all(
-                      //     color: Colors.white
-                      // ),
-
-                      borderRadius: BorderRadius.circular(19),
-                    ),
-                    child: Column(
-                      children: [
-                        Image.asset(AppAssets.threeHorizontalDote)
-                            .marginOnly(bottom: 17, top: 50),
-                        Text(
-                          AppStrings.others,
-                          style: CommonTextStyle.style7font16weight700white,
-                        )
-                      ],
-                    ),
-                  ).marginOnly(left: 10),
+                  category(
+                    imageName: AppAssets.handshake,
+                    heading: AppStrings.buyAndSell,
+                  ),
+                  const SizedBox(
+                    width: 24.0,
+                  ),
+                  category(
+                    imageName: AppAssets.threeHorizontalDote,
+                    heading: AppStrings.others,
+                  ),
                 ],
               ),
               const SizedBox(
@@ -270,6 +124,42 @@ class AnswerScreen extends StatelessWidget {
           ).marginOnly(left: 25, right: 25),
         );
       },
+    );
+  }
+
+  Widget category({String? imageName, String? heading}) {
+    return GestureDetector(
+      onTap: () {
+        Get.toNamed(Routes.searchCategory, arguments: heading);
+      },
+      child: Container(
+        height: 160,
+        width: Get.width / 2.6,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.center,
+            end: Alignment.bottomCenter,
+            colors: [
+              AppColors.discoverBackgroundColor2,
+              AppColors.discoverBackgroundColor1
+            ],
+          ),
+          borderRadius: BorderRadius.circular(19),
+        ),
+        child: Column(
+          children: [
+            Image.asset(
+              imageName!,
+              height: 50,
+              width: 50,
+            ).marginOnly(bottom: 10, top: 50),
+            Text(
+              heading!,
+              style: CommonTextStyle.style7font16weight700white,
+            )
+          ],
+        ),
+      ),
     );
   }
 }

@@ -8,26 +8,27 @@ class CommonButton extends StatelessWidget {
   final TextStyle textStyle;
   final void Function() onPressed;
   final Color fillColor;
+  final double height;
 
   // ignore: use_key_in_widget_constructors
-  const CommonButton({
-    required this.text,
-    required this.textStyle,
-    required this.onPressed,
-    this.fillColor = Colors.transparent
-  });
+  const CommonButton(
+      {required this.text,
+      required this.textStyle,
+      required this.onPressed,
+      this.fillColor = Colors.transparent,
+      this.height = 60});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       //color: CommonColor.loginAndSendCodeButtonColor,
-      width: Get.width/1.9,
-      height: 45,
+      width: Get.width / 1.7,
+      height: height,
       child: MaterialButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(7.0),
-          side:  const BorderSide(
-            color:AppColors.buttonColor,
+          side: const BorderSide(
+            color: AppColors.buttonColor,
           ),
         ),
 
@@ -54,25 +55,24 @@ class CommonButton2 extends StatelessWidget {
   final Color fillColor;
 
   // ignore: use_key_in_widget_constructors
-  const CommonButton2({
-    required this.text,
-    required this.textStyle,
-    required this.onPressed,
-    required this.fillColor
-  });
+  const CommonButton2(
+      {required this.text,
+      required this.textStyle,
+      required this.onPressed,
+      required this.fillColor});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       //color: CommonColor.loginAndSendCodeButtonColor,
-      width: MediaQuery.of(context).size.width/1.4,
+      width: MediaQuery.of(context).size.width / 1.4,
 
       height: 55,
       child: MaterialButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(7.0),
-          side:  BorderSide(
-            color: const Color(0xff0c473c).withOpacity(0.29),
+          side: const BorderSide(
+            color: Color(0xff85BAF8),
           ),
         ),
 
@@ -92,7 +92,6 @@ class CommonButton2 extends StatelessWidget {
   }
 }
 
-
 //----------------------Notifications button-------------------
 class CommonButton3 extends StatelessWidget {
   final String text;
@@ -101,12 +100,11 @@ class CommonButton3 extends StatelessWidget {
   final Color fillColor;
 
   // ignore: use_key_in_widget_constructors
-  const CommonButton3({
-    required this.text,
-    required this.textStyle,
-    required this.onPressed,
-    required this.fillColor
-  });
+  const CommonButton3(
+      {required this.text,
+      required this.textStyle,
+      required this.onPressed,
+      required this.fillColor});
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +116,7 @@ class CommonButton3 extends StatelessWidget {
       child: MaterialButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(7.0),
-          side:  const BorderSide(
+          side: const BorderSide(
             color: Colors.black,
             width: 3,
           ),
@@ -148,25 +146,23 @@ class CommonButton4 extends StatelessWidget {
   final Color fillColor;
 
   // ignore: use_key_in_widget_constructors
-  const CommonButton4({
-    required this.text,
-    required this.textStyle,
-    required this.onPressed,
-    required this.fillColor
-  });
+  const CommonButton4(
+      {required this.text,
+      required this.textStyle,
+      required this.onPressed,
+      required this.fillColor});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-
       decoration: BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.center,
               end: Alignment.bottomCenter,
               colors: [
-                AppColors.discoverbuttonGradint2,
-                AppColors.discoverbuttonGradint1
-              ])),
+            AppColors.discoverbuttonGradint2,
+            AppColors.discoverbuttonGradint1
+          ])),
 
       //color: CommonColor.loginAndSendCodeButtonColor,
       width: 100,
@@ -175,7 +171,7 @@ class CommonButton4 extends StatelessWidget {
       child: MaterialButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
-          side:  const BorderSide(
+          side: const BorderSide(
             color: Colors.transparent,
             width: 3,
           ),
@@ -196,7 +192,7 @@ class CommonButton4 extends StatelessWidget {
         ),
       ),
     );
-  }  
+  }
 }
 
 class ViewProfileButton extends StatelessWidget {
@@ -206,12 +202,11 @@ class ViewProfileButton extends StatelessWidget {
   final Color fillColor;
 
   // ignore: use_key_in_widget_constructors
-  const ViewProfileButton({
-    required this.text,
-    required this.textStyle,
-    required this.onPressed,
-    this.fillColor = Colors.transparent
-  });
+  const ViewProfileButton(
+      {required this.text,
+      required this.textStyle,
+      required this.onPressed,
+      this.fillColor = Colors.transparent});
 
   @override
   Widget build(BuildContext context) {
@@ -222,8 +217,8 @@ class ViewProfileButton extends StatelessWidget {
       child: MaterialButton(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(7.0),
-          side:  const BorderSide(
-            color:AppColors.buttonColor,
+          side: const BorderSide(
+            color: AppColors.buttonColor,
           ),
         ),
 
@@ -242,7 +237,3 @@ class ViewProfileButton extends StatelessWidget {
     );
   }
 }
-
-
-
-

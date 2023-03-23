@@ -54,11 +54,11 @@ class HelpCenterScreen extends StatelessWidget {
                   hintText: "Type your Complaint here",
                   bordercolor: AppColors.textFieldBorderColor,
                   fillcolor: Colors.white,
-                  maxlines: 23,
+                  maxlines: 20,
                   radius: 7,
                 ),
                 const SizedBox(
-                  height: 20.0,
+                  height: 40.0,
                 ),
                 Center(
                   child: CommonButton(

@@ -23,114 +23,131 @@ class InboxScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              AppStrings.inbox,
-              style: CommonTextStyle.style2,
-            ),
-            Center(
-                child: Container(
-              width: Get.width / 1.7,
-              height: 45,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: Colors.white),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      _.tapFunction = 0;
-                      _.update();
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        gradient: _.tapFunction == 0
-                            ? LinearGradient(
-                                begin: Alignment.center,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  Colors.indigoAccent.shade100,
-                                  Colors.green.shade100
-                                ],
-                              )
-                            : const LinearGradient(
-                                begin: Alignment.center,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  Colors.white,
-                                  Colors.white,
-                                ],
-                              ),
-                      ),
-                      width: Get.width / 3.7,
-                      height: 40,
-                      child: Center(
-                          child: Text(
-                        AppStrings.sent,
-                        style: _.tapFunction == 1
-                            ? CommonTextStyle.style4
-                            : CommonTextStyle.style1,
-                      )),
-                    ),
-                  ),
-                  const Spacer(),
-                  GestureDetector(
-                    onTap: () {
-                      _.tapFunction = 1;
-                      _.update();
-                    },
-                    child: Container(
-                      width: Get.width / 3.7,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        gradient: _.tapFunction == 1
-                            ? LinearGradient(
-                                begin: Alignment.center,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  Colors.indigoAccent.shade100,
-                                  Colors.green.shade100
-                                ],
-                              )
-                            : const LinearGradient(
-                                begin: Alignment.center,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  Colors.white,
-                                  Colors.white,
-                                ],
-                              ),
-                      ),
-                      child: Center(
-                        child: Text(
-                          AppStrings.received,
-                          style: _.tapFunction == 1
-                              ? CommonTextStyle.style1
-                              : CommonTextStyle.style4,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ).marginOnly(bottom: 2, top: 2),
-            ).marginOnly(top: 26)),
             Expanded(
-              child: ListView.separated(
-                itemCount: 3,
-                separatorBuilder: (BuildContext context, int index) =>
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        AppStrings.inbox,
+                        style: CommonTextStyle.style2,
+                      ),
+                    ),
                     const SizedBox(
-                  height: 10.0,
+                      height: 26,
+                    ),
+                    Center(
+                        child: Container(
+                      width: Get.width / 1.7,
+                      height: 45,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(color: Colors.white),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              _.tapFunction = 0;
+                              _.update();
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                gradient: _.tapFunction == 0
+                                    ? const LinearGradient(
+                                        begin: Alignment.center,
+                                        end: Alignment.bottomCenter,
+                                        colors: [
+                                          Color(0xff85BAF8),
+                                          Color(0xff8BDAA2)
+                                        ],
+                                      )
+                                    : const LinearGradient(
+                                        begin: Alignment.center,
+                                        end: Alignment.bottomCenter,
+                                        colors: [
+                                          Colors.white,
+                                          Colors.white,
+                                        ],
+                                      ),
+                              ),
+                              width: Get.width / 3.7,
+                              height: 40,
+                              child: Center(
+                                  child: Text(
+                                AppStrings.sent,
+                                style: _.tapFunction == 1
+                                    ? CommonTextStyle.style4
+                                    : CommonTextStyle.style1,
+                              )),
+                            ),
+                          ),
+                          const Spacer(),
+                          GestureDetector(
+                            onTap: () {
+                              _.tapFunction = 1;
+                              _.update();
+                            },
+                            child: Container(
+                              width: Get.width / 3.7,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                gradient: _.tapFunction == 1
+                                    ? const LinearGradient(
+                                        begin: Alignment.center,
+                                        end: Alignment.bottomCenter,
+                                        colors: [
+                                          Color(0xff85BAF8),
+                                          Color(0xff8BDAA2)
+                                        ],
+                                      )
+                                    : const LinearGradient(
+                                        begin: Alignment.center,
+                                        end: Alignment.bottomCenter,
+                                        colors: [
+                                          Colors.white,
+                                          Colors.white,
+                                        ],
+                                      ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  AppStrings.received,
+                                  style: _.tapFunction == 1
+                                      ? CommonTextStyle.style1
+                                      : CommonTextStyle.style4,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ).marginOnly(bottom: 2, top: 2),
+                    ).marginOnly(top: 26)),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    cardWithImage(),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    askQuestionCard(),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    cardWithImage(),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                  ],
                 ),
-                itemBuilder: (c, i) {
-                  return i == 1 ? cardWithImage() : askQuestionCard();
-                },
-              ).marginOnly(top: 10.0, bottom: 10.0),
-            )
+              ),
+            ),
           ],
         ).marginOnly(left: 25, right: 25);
       },

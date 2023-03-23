@@ -1,16 +1,16 @@
 import 'package:ask/constants/app_assets/app_assets.dart';
-import 'package:ask/constants/app_colors/app_colors.dart';
 import 'package:ask/routes/app_routes.dart';
 import 'package:ask/utils/drawer.dart';
 import 'package:ask/views/answer/answer.dart';
 import 'package:ask/views/inbox/inbox_screen.dart';
+import 'package:ask/views/notification/notification_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/dashboard_controller.dart';
+import '../../utils/isLoading.dart';
 import '../ask_question/ask_question.dart';
 import '../discover/discover.dart';
-import '../notification/notification.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -65,18 +65,15 @@ class Dashboard extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.center,
                   end: Alignment.bottomCenter,
-                  colors: _.currentindex == 4
-                      ? [
-                          Colors.white,
-                          Colors.white,
-                        ]
-                      : [
-                          AppColors.discoverBackgroundColor1,
-                          AppColors.discoverBackgroundColor2
-                        ],
+                  colors: [
+                    const Color(0xff8BDAA2).withOpacity(0.27),
+                    const Color(0xff85BAF8).withOpacity(0.68)
+                  ],
                 ),
               ),
-              child: SafeArea(child: getBody(_)),
+              child: SafeArea(
+                child: _.isLoading ? const Loading() : getBody(_),
+              ),
             ),
             bottomNavigationBar: bottomnavbar(_),
           ),
@@ -91,7 +88,7 @@ class Dashboard extends StatelessWidget {
       const AnswerScreen(),
       const AskQuestionScreen(),
       const InboxScreen(),
-      const NotificationScreen()
+      const NotificationAlertScreen()
     ];
     return IndexedStack(
       index: _.currentindex,
@@ -119,7 +116,10 @@ class Dashboard extends StatelessWidget {
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_box),
+          icon: Icon(
+            Icons.add_box,
+            size: 40,
+          ),
           backgroundColor: Color(0xff85BAF8),
           label: '',
         ),

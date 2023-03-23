@@ -14,36 +14,49 @@ class SignupOrLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: bodyData(context),);
-  }
-  Widget bodyData(context){
-    return GetBuilder<SignupOrLoginController>(init: SignupOrLoginController(),builder: (_) {
-        return SizedBox(
-          height: Get.height,
-          width: Get.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(AppStrings.welcomeTo,style: CommonTextStyle.style2,),
-              Image.asset(AppAssets.colorfulAsk).marginOnly(top: 32,bottom: 100),
-              CommonButton2(text: "Sign up", textStyle: CommonTextStyle.style1, onPressed: (){
-
-                Get.toNamed(Routes.signUp);
-              }, fillColor: AppColors.buttonColor),
-              CommonButton2(text: "Login", textStyle: CommonTextStyle.style1, onPressed: (){
-                Get.toNamed(Routes.login);
-              },
-                  fillColor: AppColors.buttonColor).marginOnly(top: 12)
-
-
-            ],
-          ),
-        );
-      }
+    return Scaffold(
+      body: bodyData(context),
     );
   }
 
-
-
+  Widget bodyData(context) {
+    return GetBuilder<SignupOrLoginController>(
+        init: SignupOrLoginController(),
+        builder: (_) {
+          return SizedBox(
+            height: Get.height,
+            width: Get.width,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  AppStrings.welcomeTo,
+                  style: CommonTextStyle.style2,
+                ),
+                Image.asset(
+                  AppAssets.colorfulAsk,
+                  height: 50.7,
+                  width: 125.1,
+                ).marginOnly(top: 32, bottom: 100),
+                CommonButton2(
+                    text: "Sign up",
+                    textStyle: CommonTextStyle.style1,
+                    onPressed: () {
+                      Get.toNamed(Routes.signUp);
+                    },
+                    fillColor: AppColors.buttonColor),
+                CommonButton2(
+                        text: "Login",
+                        textStyle: CommonTextStyle.style1,
+                        onPressed: () {
+                          Get.toNamed(Routes.login);
+                        },
+                        fillColor: AppColors.buttonColor)
+                    .marginOnly(top: 12)
+              ],
+            ),
+          );
+        });
+  }
 }

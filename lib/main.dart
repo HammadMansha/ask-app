@@ -1,3 +1,4 @@
+import 'package:ask/constants/app_strings/app_strings.dart';
 import 'package:ask/routes/app_pagess.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      //title: AppStrings.appName,
+      title: AppStrings.appName,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,

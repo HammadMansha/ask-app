@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+class SignUpController extends GetxController {
+  bool isLoading = true;
 
-class SignUpController extends GetxController{
-  TextEditingController email=TextEditingController();
+  TextEditingController email = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-
+  @override
+  void onReady() {
+    isLoading = false;
+    super.onReady();
+  }
 }

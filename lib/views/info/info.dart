@@ -1,6 +1,7 @@
 import 'package:ask/constants/app_assets/app_assets.dart';
 import 'package:ask/constants/app_colors/app_colors.dart';
 import 'package:ask/controllers/info/info_controller.dart';
+import 'package:ask/routes/app_routes.dart';
 import 'package:ask/widgets/common_buttons/common_button.dart';
 import 'package:ask/widgets/common_textstyle/common_text_style.dart';
 import 'package:flutter/material.dart';
@@ -46,21 +47,22 @@ class InfoScreen extends StatelessWidget {
             ),
           ),
           child: SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  _.heading,
-                  style: CommonTextStyle.style2,
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                Expanded(
-                  child: ListView.separated(
+            child: SingleChildScrollView(
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.start,
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    _.heading,
+                    style: CommonTextStyle.style2,
+                  ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                  ListView.separated(
                     itemCount: 10,
                     shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     separatorBuilder: (c, i) {
                       return const SizedBox(
                         height: 10.0,
@@ -69,10 +71,10 @@ class InfoScreen extends StatelessWidget {
                     itemBuilder: (c, i) {
                       return userInfo();
                     },
-                  ).marginOnly(bottom: 25.0, top: 10.0),
-                )
-              ],
-            ).marginOnly(left: 25, right: 25),
+                  ).marginOnly(bottom: 25.0, top: 10.0)
+                ],
+              ).marginOnly(left: 25, right: 25),
+            ),
           ),
         );
       },
@@ -115,7 +117,9 @@ class InfoScreen extends StatelessWidget {
           ),
           const Spacer(),
           ViewProfileButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(Routes.userprofile);
+            },
             text: 'Visit Profile',
             fillColor: const Color(0xff85BAF8),
             textStyle: const TextStyle(

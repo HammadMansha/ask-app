@@ -1,5 +1,6 @@
 import 'package:ask/constants/app_strings/app_strings.dart';
 import 'package:ask/controllers/auth/signup/signup2_controller.dart';
+import 'package:ask/utils/isLoading.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,90 +15,134 @@ class SignUpScreen2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: bodyData(context),
-    appBar: AppBar(
-      backgroundColor: Colors.white,
-      elevation: 0.0,
-      leading: GestureDetector(
-        onTap: () {
-          // _.betterPlayerController.dispose();
-          Get.back();
-          // Get.off(() => Dashboard());
-        },
-        child: const Icon(
-          Icons.arrow_back_ios_new,
-          size: 15,
-          color: Colors.black,
-        ),
-      ),
-
-    ),);
-  }
-  Widget bodyData(context){
-    return GetBuilder<SignUp2Controller>(init: SignUp2Controller(),builder: (_) {
-      return Container(
-        height: Get.height,
-        width: Get.width,
-        color: Colors.white,
-        child:  SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-
-            children: [
-              Text(AppStrings.letsGet,style: CommonTextStyle.style2,).marginOnly(top: 50,left: 50),
-              Text(AppStrings.signUp,style: CommonTextStyle.style3,).marginOnly(top: 0,left: 50),
-              CommonTextField(
-                controller: _.firstName,
-                hintText: "First Name",
-                bordercolor: AppColors.textFieldBorderColor,
-                fillcolor: Colors.white,
-                radius: 7,
-              ).marginOnly(top: 48,left: 50,right: 50),
-              CommonTextField(
-                controller: _.lastName,
-                hintText: "Last Name",
-                bordercolor: AppColors.textFieldBorderColor,
-                fillcolor: Colors.white,
-                radius: 7,
-              ).marginOnly(top: 12,left: 50,right: 50),
-              CommonTextField(
-                controller: _.dateOfBirth,
-                hintText: "Date of Birth(DD/MM/YY)",
-                bordercolor: AppColors.textFieldBorderColor,
-                fillcolor: Colors.white,
-                radius: 7,
-              ).marginOnly(top: 12,left: 50,right: 50),
-              CommonTextField(
-                controller: _.userName,
-                hintText: "Username",
-                bordercolor: AppColors.textFieldBorderColor,
-                fillcolor: Colors.white,
-                radius: 7,
-              ).marginOnly(top: 12,left: 50,right: 50),
-              CommonTextField(
-                controller: _.password,
-                hintText: "Password",
-                bordercolor: AppColors.textFieldBorderColor,
-                fillcolor: Colors.white,
-                radius: 7,
-              ).marginOnly(top: 12,left: 50,right: 50),
-
-
-
-
-              Center(
-                child: CommonButton(text: "Sign up", textStyle: CommonTextStyle.style1, onPressed: (){
-                  Get.toNamed(Routes.login);
-                }, fillColor: AppColors.buttonColor),
-              ).marginOnly(top: 36),
-
-
-            ],
+    return Scaffold(
+      body: bodyData(context),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        leading: GestureDetector(
+          onTap: () {
+            // _.betterPlayerController.dispose();
+            Get.back();
+            // Get.off(() => Dashboard());
+          },
+          child: const Icon(
+            Icons.arrow_back_ios_new,
+            size: 15,
+            color: Colors.black,
           ),
         ),
-      );
-    }
+      ),
     );
   }
 
+  Widget bodyData(context) {
+    return GetBuilder<SignUp2Controller>(
+        init: SignUp2Controller(),
+        builder: (_) {
+          return Container(
+            height: Get.height,
+            width: Get.width,
+            color: Colors.white,
+            child: _.isLoading
+                ? const Loading()
+                : SingleChildScrollView(
+                    child: Form(
+                      key: _.formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AppStrings.letsGet,
+                            style: CommonTextStyle.style2,
+                          ).marginOnly(top: 50, left: 50),
+                          Text(
+                            AppStrings.signUp,
+                            style: CommonTextStyle.style3,
+                          ).marginOnly(top: 0, left: 50),
+                          CommonTextField(
+                            controller: _.firstName,
+                            hintText: "First Name",
+                            bordercolor: AppColors.textFieldBorderColor,
+                            fillcolor: Colors.white,
+                            radius: 7,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter first name';
+                              }
+                              return null;
+                            },
+                          ).marginOnly(top: 48, left: 50, right: 50),
+                          CommonTextField(
+                            controller: _.lastName,
+                            hintText: "Last Name",
+                            bordercolor: AppColors.textFieldBorderColor,
+                            fillcolor: Colors.white,
+                            radius: 7,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter last name';
+                              }
+                              return null;
+                            },
+                          ).marginOnly(top: 12, left: 50, right: 50),
+                          CommonTextField(
+                            controller: _.dateOfBirth,
+                            hintText: "Date of Birth(DD/MM/YY)",
+                            bordercolor: AppColors.textFieldBorderColor,
+                            fillcolor: Colors.white,
+                            radius: 7,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter DOB';
+                              }
+                              return null;
+                            },
+                          ).marginOnly(top: 12, left: 50, right: 50),
+                          CommonTextField(
+                            controller: _.userName,
+                            hintText: "Username",
+                            bordercolor: AppColors.textFieldBorderColor,
+                            fillcolor: Colors.white,
+                            radius: 7,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter username';
+                              }
+                              return null;
+                            },
+                          ).marginOnly(top: 12, left: 50, right: 50),
+                          CommonTextField(
+                            controller: _.password,
+                            hintText: "Password",
+                            bordercolor: AppColors.textFieldBorderColor,
+                            fillcolor: Colors.white,
+                            radius: 7,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter password';
+                              } else if (value.length <= 6) {
+                                return 'password must be greater than 6 digit';
+                              }
+                              return null;
+                            },
+                          ).marginOnly(top: 12, left: 50, right: 50),
+                          Center(
+                            child: CommonButton(
+                                text: "Sign up",
+                                textStyle: CommonTextStyle.style1,
+                                onPressed: () async {
+                                  // await _.signUpFun();
+                                  Get.back();
+                                  Get.back();
+                                },
+                                fillColor: AppColors.buttonColor),
+                          ).marginOnly(top: 36),
+                        ],
+                      ),
+                    ),
+                  ),
+          );
+        });
+  }
 }
