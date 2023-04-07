@@ -1,4 +1,5 @@
 
+import 'package:ask/middlewears/auth/auth_middlewear.dart';
 import 'package:ask/routes/app_routes.dart';
 import 'package:ask/views/answer/searchCategory.dart';
 import 'package:ask/views/ask_question/askquestion_user.dart';
@@ -18,6 +19,7 @@ import 'package:ask/views/profile/userProfile.dart';
 import 'package:ask/views/resetpassword/restpassword.dart';
 import 'package:get/get.dart';
 import '../views/auth/forogt_password/otp_screen.dart';
+import '../views/discover/detail.dart';
 import '../views/notification/notification.dart';
 import '../views/splash/splash_screen.dart';
 
@@ -71,9 +73,9 @@ class AppPages {
     GetPage(
       name: Routes.dashboard,
       page: () => const Dashboard(),
-      // middlewares: [
-      //   IsLoggedMiddleware(),
-      // ]
+      middlewares: [
+        IsLoggedMiddleware(),
+      ]
 
     ),
 
@@ -152,6 +154,14 @@ class AppPages {
     GetPage(
       name: Routes.searchCategory,
       page: () => const SearchCategoryScreen(),
+    ),
+
+
+    //------------------------- Detail Screen------------
+    
+    GetPage(
+      name: Routes.detailPost,
+      page: () => const DetailPost(),
     ),
 
   ];

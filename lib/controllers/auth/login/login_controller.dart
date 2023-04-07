@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:ask/api/api.dart';
+import 'package:ask/utils/snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -47,6 +48,8 @@ class LoginController extends GetxController {
           await storage.write(
               'refresh_token', data['tokens']['refresh']['token']);
           Get.offAllNamed(Routes.dashboard);
+          CommonSnackbar.getSnackbar(
+              'Success', 'Login Successfully', Colors.green);
         } else {
           isLoading = false;
           update();

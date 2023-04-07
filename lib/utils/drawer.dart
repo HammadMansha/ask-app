@@ -1,20 +1,23 @@
 import 'package:ask/constants/app_assets/app_assets.dart';
 import 'package:ask/constants/app_colors/app_colors.dart';
 import 'package:ask/constants/app_strings/app_strings.dart';
+import 'package:ask/controllers/dashboard_controller.dart';
 import 'package:ask/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../widgets/common_textstyle/common_text_style.dart';
 
 class DrawerUtils extends StatelessWidget {
-  const DrawerUtils({super.key});
+  DrawerUtils({super.key});
+
+  DashboardController dashboardController = Get.find<DashboardController>();
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Colors.white,
-      child: ListView(
-        padding: const EdgeInsets.all(10.0),
+      child: Column(
+        // padding: const EdgeInsets.all(10.0),
         children: [
           const SizedBox(height: 200),
           ListTile(
@@ -109,8 +112,30 @@ class DrawerUtils extends StatelessWidget {
               size: 13,
             ),
           ),
+          const Spacer(),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: GestureDetector(
+              onTap: () {
+                dashboardController.signout();
+              },
+              child: Container(
+                width: Get.width,
+                height: 38,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.red),
+                    borderRadius: BorderRadius.circular(5.0)),
+                child: const Center(
+                  child: Text(
+                    'Log Out',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+              ),
+            ),
+          ).marginOnly(bottom: 75),
         ],
-      ),
+      ).marginOnly(left: 12 , right: 12),
     );
   }
 }

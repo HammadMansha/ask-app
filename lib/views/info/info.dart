@@ -7,6 +7,10 @@ import 'package:ask/widgets/common_textstyle/common_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../utils/circleImage.dart';
+import '../../utils/isLoading.dart';
+import '../../widgets/common_textfields/commn_textfield.dart';
+
 class InfoScreen extends StatelessWidget {
   const InfoScreen({super.key});
 
@@ -46,42 +50,98 @@ class InfoScreen extends StatelessWidget {
               ],
             ),
           ),
-          child: SafeArea(
-            child: SingleChildScrollView(
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.start,
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    _.heading,
-                    style: CommonTextStyle.style2,
+          child: _.isLoading
+              ? const Loading()
+              : SafeArea(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.start,
+                      // crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            _.heading,
+                            style: CommonTextStyle.style2,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 40.0,
+                        ),
+                        CommonTextField(
+                          controller: _.searchController,
+                          radius: 55.0,
+                          suffixicon: const Icon(Icons.search),
+                          bordercolor: AppColors.textFieldBorderColor,
+                          hintText: "Search here",
+                          fillcolor: AppColors.whiteColor,
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        _.heading == 'Following'
+                        ?
+                        _.userProfile!.following!.isEmpty
+                            ? const Center(
+                                child: Text(
+                                  'No Data Found',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black),
+                                ),
+                              )
+                            : ListView.separated(
+                                itemCount: _.userProfile!.following!.length,
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                separatorBuilder: (c, i) {
+                                  return const SizedBox(
+                                    height: 10.0,
+                                  );
+                                },
+                                itemBuilder: (c, i) {
+                                  return userInfo(
+                                    profileImage: _.userProfile!.following![i].photoPath,
+                                    name: '${_.userProfile!.following![i].firstName} ${_.userProfile!.following![i].lastName}',
+                                    id: _.userProfile!.following![i].id
+                                  );
+                                },
+                              ).marginOnly(bottom: 25.0, top: 10.0)
+                              :_.userProfile!.followers!.isEmpty
+                              ? const Center(
+                                child: Text(
+                                  'No Data Found',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black),
+                                ),
+                              ) : ListView.separated(
+                                itemCount: _.userProfile!.followers!.length,
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                separatorBuilder: (c, i) {
+                                  return const SizedBox(
+                                    height: 10.0,
+                                  );
+                                },
+                                itemBuilder: (c, i) {
+                                  return userInfo(
+                                    profileImage: _.userProfile!.followers![i].photoPath,
+                                    name: '${_.userProfile!.followers![i].firstName} ${_.userProfile!.followers![i].lastName}',
+                                    id: _.userProfile!.followers![i].id
+                                  );
+                                },
+                              ).marginOnly(bottom: 25.0, top: 10.0),
+                      ],
+                    ).marginOnly(left: 25, right: 25),
                   ),
-                  const SizedBox(
-                    height: 20.0,
-                  ),
-                  ListView.separated(
-                    itemCount: 10,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    separatorBuilder: (c, i) {
-                      return const SizedBox(
-                        height: 10.0,
-                      );
-                    },
-                    itemBuilder: (c, i) {
-                      return userInfo();
-                    },
-                  ).marginOnly(bottom: 25.0, top: 10.0)
-                ],
-              ).marginOnly(left: 25, right: 25),
-            ),
-          ),
+                ),
         );
       },
     );
   }
 
-  Widget userInfo() {
+  Widget userInfo({String? profileImage , String? name , String? id}) {
     return Container(
       width: Get.width,
       height: 62,
@@ -94,19 +154,12 @@ class InfoScreen extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            width: 32,
+          CircularCachedNetworkImage(
+            imageURL: '',
             height: 32,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-              image: DecorationImage(
-                image: NetworkImage(
-                  AppAssets.avatar,
-                ),
-                fit: BoxFit.cover,
-              ),
-            ),
+            width: 32,
+            errorImage: AppAssets.profilePic,
+            borderColor: Colors.white,
           ),
           const SizedBox(
             width: 10.0,
@@ -118,7 +171,7 @@ class InfoScreen extends StatelessWidget {
           const Spacer(),
           ViewProfileButton(
             onPressed: () {
-              Get.toNamed(Routes.userprofile);
+              Get.toNamed(Routes.userprofile , arguments: id);
             },
             text: 'Visit Profile',
             fillColor: const Color(0xff85BAF8),

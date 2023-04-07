@@ -1,6 +1,30 @@
 class ApiData {
   static const baseUrl = "http://68.183.83.184:4052/v1/api";
   static const signIn = '/auth/signin';
+  static const signup = '/auth/signup';
   static const singleUser = '/users/';
   static const forgotpassword = '/auth/forgot/password';
+  static const post = '/post';
+  static const getFollowersPost = '/post/fetch/posts/followers';
+  static const likePost = '/post/like/';
+  static const dislikePost = '/post/dislike/';
+  static const writeComment = '/post/comment';
+  static const profile = '/profile/';
+  static const logout = 'auth/logout';
+  static const writecomment = '/post/comment';
+  static const deletecomment = '/post/comment/remove';
+  static const loggedProfile = '/profile/user/fetch';
+  static const userProfilebyId = '/profile/user/fetch';
+  static const sentPost = '/post/fetch/direct/sent';
+  static const recievedPost = '/post/fetch/direct/recieved';
+  static const updateUser = '/users/';
+  static const followUser = '/profile/follow';
+  static const unfollowUser = '/profile/unfollow';
+  static const getQuestionById = '/post/user/asked';
+  static const getAnswerById = '/post/user/answered';
+  static const savePost = '/post/bookmark/question';
+  static const unsavePost = '/post/unbookmark/question';
+  static const getSavePost = '/post/bookmark/question';
+  static const getNotification = '/notification';
+  static const directQuestion = '/post/direct/question';
 }

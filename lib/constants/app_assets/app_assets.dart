@@ -25,6 +25,7 @@ class AppAssets {
   static const String handshake = "$imageDir/handshake.png";
   static const String threeHorizontalDote =
       "$imageDir/horizontal_three_dots.png";
+  static const String replay = '$imageDir/arrow.png';
 
   //------------------------------Drawer----------------------
   static const String help = "$imageDir/help.png";

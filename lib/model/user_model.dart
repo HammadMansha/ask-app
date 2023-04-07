@@ -1,4 +1,6 @@
-
+// To parse this JSON data, do
+//
+//     final userModel = userModelFromJson(jsonString);
 
 import 'dart:convert';
 
@@ -8,7 +10,7 @@ String userModelToJson(UserModel data) => json.encode(data.toJson());
 
 class UserModel {
     UserModel({
-        this.otp,
+        this.coverImage,
         this.email,
         this.firstName,
         this.lastName,
@@ -17,26 +19,26 @@ class UserModel {
         this.bio,
         this.photoPath,
         this.role,
-        this.active,
         this.deviceToken,
+        this.active,
         this.id,
     });
 
-    Otp? otp;
+    dynamic coverImage;
     String? email;
     String? firstName;
     String? lastName;
     List<dynamic>? location;
     String? userName;
     dynamic bio;
-    String? photoPath;
+    dynamic photoPath;
     String? role;
+    List<dynamic>? deviceToken;
     bool? active;
-    List<String>? deviceToken;
     String? id;
 
     factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        otp: json["OTP"] == null ? null : Otp.fromJson(json["OTP"]),
+        coverImage: json["coverImage"],
         email: json["email"],
         firstName: json["firstName"],
         lastName: json["lastName"],
@@ -45,13 +47,13 @@ class UserModel {
         bio: json["bio"],
         photoPath: json["photoPath"],
         role: json["role"],
+        deviceToken: json["deviceToken"] == null ? [] : List<dynamic>.from(json["deviceToken"]!.map((x) => x)),
         active: json["active"],
-        deviceToken: json["deviceToken"] == null ? [] : List<String>.from(json["deviceToken"]!.map((x) => x)),
         id: json["id"],
     );
 
     Map<String, dynamic> toJson() => {
-        "OTP": otp?.toJson(),
+        "coverImage": coverImage,
         "email": email,
         "firstName": firstName,
         "lastName": lastName,
@@ -60,24 +62,8 @@ class UserModel {
         "bio": bio,
         "photoPath": photoPath,
         "role": role,
-        "active": active,
         "deviceToken": deviceToken == null ? [] : List<dynamic>.from(deviceToken!.map((x) => x)),
+        "active": active,
         "id": id,
-    };
-}
-
-class Otp {
-    Otp({
-        this.key,
-    });
-
-    dynamic key;
-
-    factory Otp.fromJson(Map<String, dynamic> json) => Otp(
-        key: json["key"],
-    );
-
-    Map<String, dynamic> toJson() => {
-        "key": key,
     };
 }

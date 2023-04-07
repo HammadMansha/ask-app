@@ -33,7 +33,8 @@ class CommonTextField extends StatelessWidget {
   final Widget? suffixicon;
   final double? radius;
   final changeObscureStatus;
-  const CommonTextField(
+  void Function(String)? onFieldSubmitted;
+  CommonTextField(
       {Key? key,
       @required this.controller,
       this.validator,
@@ -60,7 +61,8 @@ class CommonTextField extends StatelessWidget {
       this.changeObscureStatus,
       this.focus,
       this.suffixicon,
-      this.maxlength})
+      this.onFieldSubmitted,
+      this.maxlength,})
       : super(key: key);
 
   @override
@@ -72,6 +74,7 @@ class CommonTextField extends StatelessWidget {
       onChanged: onChanged,
       inputFormatters: inputFormatters,
       obscureText: isTextHidden,
+      onFieldSubmitted: onFieldSubmitted,
       readOnly: readOnly == null ? false : true,
       onTap: onTap,
       maxLength: maxLength,
@@ -80,6 +83,8 @@ class CommonTextField extends StatelessWidget {
       textInputAction: textInputAction,
       decoration: InputDecoration(
         //suffix:suffixicon,
+        contentPadding: const EdgeInsets.symmetric(
+                    vertical: 11.0, horizontal: 18.0,),
         prefixIcon: prefixIcon != null
             ? GestureDetector(
                 onTap: prefixIconTap,

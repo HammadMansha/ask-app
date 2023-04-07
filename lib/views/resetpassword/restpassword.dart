@@ -42,9 +42,29 @@ class ResetPassword extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    AppStrings.rheading,
-                    style: CommonTextStyle.style2,
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      AppStrings.rheading,
+                      style: CommonTextStyle.style2,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 47,
+                  ),
+                  const Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Reset Password',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16.0,
+                        color: Color(0xff1e1e1e),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 33,
                   ),
                   CommonTextField(
                     controller: _.oldpassowrd,
@@ -52,14 +72,20 @@ class ResetPassword extends StatelessWidget {
                     bordercolor: AppColors.textFieldBorderColor,
                     fillcolor: Colors.white,
                     radius: 7,
-                  ).marginOnly(top: 48),
+                  ),
+                  const SizedBox(
+                    height: 47,
+                  ),
                   CommonTextField(
                     controller: _.newpassowrd,
                     hintText: "New Password",
                     bordercolor: AppColors.textFieldBorderColor,
                     fillcolor: Colors.white,
                     radius: 7,
-                  ).marginOnly(top: 12),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
                   CommonTextField(
                     controller: _.confirmpassowrd,
                     hintText: "Confirm Password",
@@ -68,7 +94,7 @@ class ResetPassword extends StatelessWidget {
                     radius: 7,
                   ).marginOnly(top: 12),
                   const SizedBox(
-                    height: 20.0,
+                    height: 45.0,
                   ),
                   Center(
                     child: CommonButton(

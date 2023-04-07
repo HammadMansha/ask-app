@@ -72,8 +72,8 @@ class ForogotPassword extends StatelessWidget {
                           text: "Send OTP",
                           textStyle: CommonTextStyle.style1,
                           onPressed: () {
-                            // _.forgotPasswordFun();
-                            Get.toNamed(Routes.otp);
+                            _.forgotPasswordFun();
+                            // Get.toNamed(Routes.otp);
                           },
                           fillColor: AppColors.buttonColor),
                     ).marginOnly(top: 36),

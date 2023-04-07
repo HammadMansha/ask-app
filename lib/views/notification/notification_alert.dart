@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants/app_strings/app_strings.dart';
+import '../../utils/isLoading.dart';
 import '../../widgets/common_textstyle/common_text_style.dart';
 
 class NotificationAlertScreen extends StatelessWidget {
@@ -19,41 +20,53 @@ class NotificationAlertScreen extends StatelessWidget {
     return GetBuilder<NotificationController>(
       init: NotificationController(),
       builder: (_) {
-        return SingleChildScrollView(
-          child: Column(
-            children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  AppStrings.noheading,
-                  style: CommonTextStyle.style2,
+        return _.isLoading
+            ? const Loading()
+            : SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        AppStrings.noheading,
+                        style: CommonTextStyle.style2,
+                      ),
+                    ).marginOnly(left: 25, right: 25),
+                    const SizedBox(
+                      height: 20.0,
+                    ),
+                    _.notificationList.isEmpty
+                        ? const Center(
+                            child: Text(
+                              'No Notification Found',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
+                            ),
+                          )
+                        : ListView.builder(
+                            itemCount: _.notificationList.length,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemBuilder: (c, i) {
+                              return notificationBody(
+                                  message: _.notificationList[i]['subject']);
+                            },
+                          ).marginOnly(top: 10.0),
+                  ],
                 ),
-              ).marginOnly(left: 25, right: 25),
-              const SizedBox(
-                height: 20.0,
-              ),
-              ListView.builder(
-                itemCount: 10,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemBuilder: (c, i) {
-                  return notificationBody();
-                },
-              ).marginOnly(top: 10.0),
-            ],
-          ),
-        );
+              );
       },
     );
   }
 
-  Widget notificationBody({Color? tileColor}) {
+  Widget notificationBody({Color? tileColor, String? message}) {
     return ListTile(
       contentPadding: const EdgeInsets.all(15),
       tileColor: tileColor ?? const Color(0xffFFFFFF).withOpacity(0.6),
-      title: const Text(
-        'Mike Ross responded to your question. Click to View!',
-        style: TextStyle(
+      title: Text(
+        '$message',
+        style: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w600,
           color: Color(0xff1E1E1E),

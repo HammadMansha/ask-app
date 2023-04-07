@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/dashboard_controller.dart';
+import '../../utils/circleImage.dart';
 import '../../utils/isLoading.dart';
 import '../ask_question/ask_question.dart';
 import '../discover/discover.dart';
@@ -34,29 +35,46 @@ class Dashboard extends StatelessWidget {
           },
           child: Scaffold(
             key: _.scaffoldKey,
-            appBar: AppBar(
-              leading: _.currentindex == 0
-                  ? GestureDetector(
-                      onTap: () {
-                        _.scaffoldKey.currentState!.openDrawer();
-                      },
-                      child: Image.asset(AppAssets.drawer),
-                    )
-                  : null,
-              backgroundColor: Colors.transparent,
-              elevation: 0.0,
-              actions: _.currentindex == 4 || _.currentindex == 2
-                  ? []
-                  : [
-                      GestureDetector(
+            appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(40.0),
+              child: AppBar(
+                leading: _.currentindex == 0
+                    ? GestureDetector(
                         onTap: () {
-                          Get.toNamed(Routes.profileScreen);
+                          _.scaffoldKey.currentState!.openDrawer();
                         },
-                        child: Image.asset(AppAssets.profilePic),
-                      ),
-                    ],
+                        child: Image.asset(AppAssets.drawer),
+                      )
+                    : null,
+                automaticallyImplyLeading: false,
+                backgroundColor: Colors.transparent,
+                elevation: 0.0,
+                actions: _.currentindex == 4 || _.currentindex == 2
+                    ? []
+                    : [
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed(
+                              Routes.profileScreen,
+                              arguments: _.user!.id,
+                            );
+                          },
+                          child: CircularCachedNetworkImage(
+                            imageURL: _.user == null
+                                ? AppAssets.avatar
+                                : _.user!.photoPath == null
+                                    ? AppAssets.avatar
+                                    : _.user!.photoPath!,
+                            height: 40,
+                            width: 40,
+                            errorImage: AppAssets.profilePic,
+                            borderColor: Colors.white,
+                          ),
+                        ).marginOnly(right: 10.0),
+                      ],
+              ),
             ),
-            drawer: _.currentindex == 0 ? const DrawerUtils() : null,
+            drawer: _.currentindex == 0 ? DrawerUtils() : null,
             extendBodyBehindAppBar: true,
             body: Container(
               height: Get.height,

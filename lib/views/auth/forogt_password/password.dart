@@ -84,10 +84,10 @@ class Password extends StatelessWidget {
                           text: "Submit",
                           textStyle: CommonTextStyle.style1,
                           onPressed: () {
-                            // _.passwordFun();
-                            Get.back();
-                            Get.back();
-                            Get.back();
+                            _.passwordFun();
+                            // Get.back();
+                            // Get.back();
+                            // Get.back();
                           },
                           fillColor: AppColors.buttonColor),
                     ).marginOnly(top: 30),

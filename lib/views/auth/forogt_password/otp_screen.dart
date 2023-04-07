@@ -112,10 +112,10 @@ class OTPScreen extends StatelessWidget {
                     fillColor: AppColors.buttonColor),
                 GestureDetector(
                   onTap: () {
-                    // if (_.formKey.currentState!.validate()) {
-                    //   Get.toNamed(Routes.passwordScreen);
-                    // }
-                    Get.toNamed(Routes.passwordScreen);
+                    if (_.formKey.currentState!.validate()) {
+                      Get.toNamed(Routes.passwordScreen);
+                    }
+                    // Get.toNamed(Routes.passwordScreen);
                   },
                   child: Center(
                     child: const Text("Resend OTP")

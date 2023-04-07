@@ -132,9 +132,9 @@ class SignUpScreen2 extends StatelessWidget {
                                 text: "Sign up",
                                 textStyle: CommonTextStyle.style1,
                                 onPressed: () async {
-                                  // await _.signUpFun();
-                                  Get.back();
-                                  Get.back();
+                                  await _.signUpFun();
+                                  // Get.back();
+                                  // Get.back();
                                 },
                                 fillColor: AppColors.buttonColor),
                           ).marginOnly(top: 36),

@@ -1,4 +1,4 @@
-import 'package:ask/constants/app_assets/app_assets.dart';
+import 'dart:io';
 import 'package:ask/controllers/ask_question/askquestion_user_controller.dart';
 import 'package:ask/widgets/common_buttons/common_button.dart';
 import 'package:ask/widgets/common_textfields/commn_textfield.dart';
@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants/app_colors/app_colors.dart';
+import '../../utils/isLoading.dart';
+import '../../widgets/form/dropdown.dart';
 
 class AskQuestionUserScreen extends StatelessWidget {
   const AskQuestionUserScreen({Key? key}) : super(key: key);
@@ -36,7 +38,9 @@ class AskQuestionUserScreen extends StatelessWidget {
           body: SizedBox(
             height: Get.height,
             width: Get.width,
-            child: SingleChildScrollView(
+            child:  _.isLoading
+              ? const Loading()
+              : SingleChildScrollView(
               child: Column(
                 children: [
                   Align(
@@ -57,9 +61,9 @@ class AskQuestionUserScreen extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.bottomLeft,
                         child: RichText(
-                          text: const TextSpan(
+                          text:  TextSpan(
                             children: [
-                              TextSpan(
+                              const TextSpan(
                                 text: 'Ask ',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
@@ -68,14 +72,14 @@ class AskQuestionUserScreen extends StatelessWidget {
                                 ),
                               ),
                               TextSpan(
-                                text: 'Hamziii ',
-                                style: TextStyle(
+                                text: '${_.name} ',
+                                style: const TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 36,
                                   color: Color(0xff747474),
                                 ),
                               ),
-                              TextSpan(
+                              const TextSpan(
                                 text: 'a Question',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
@@ -106,69 +110,80 @@ class AskQuestionUserScreen extends StatelessWidget {
                           maxlines: 8,
                         ),
                       ).marginOnly(top: 12),
-                      Row(
-                        children: [
-                          Container(
-                            height: 75,
-                            width: 75,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(23.0),
-                                border: Border.all(
-                                    color: AppColors.textFieldBorderColor)),
-                            child: const Icon(
-                              Icons.camera_alt_outlined,
-                              color: AppColors.buttonColor,
-                              size: 40,
+                      SizedBox(
+                        height: 75,
+                        width: Get.width,
+                        child: Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () => _.selectImage(),
+                              child: Container(
+                                height: 75,
+                                width: 75,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(23.0),
+                                    border: Border.all(
+                                        color: AppColors.textFieldBorderColor)),
+                                child: const Icon(
+                                  Icons.camera_alt_outlined,
+                                  color: AppColors.buttonColor,
+                                  size: 40,
+                                ),
+                              ),
                             ),
-                          ),
-                          Container(
-                            height: 75,
-                            width: 75,
-                            decoration: BoxDecoration(
-                              image: const DecorationImage(
-                                  image: AssetImage(AppAssets.cameraUploadImg)),
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(23.0),
-                              border: Border.all(
-                                  color: AppColors.textFieldBorderColor),
+                            const SizedBox(
+                              width: 10.0,
                             ),
-                          ).marginOnly(left: 12),
-                          Container(
-                            height: 75,
-                            width: 75,
-                            decoration: BoxDecoration(
-                              image: const DecorationImage(
-                                  image: AssetImage(AppAssets.cameraUploadImg)),
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(23.0),
-                              border: Border.all(
-                                  color: AppColors.textFieldBorderColor),
+                            SizedBox(
+                              height: 75,
+                              child: ListView.separated(
+                                shrinkWrap: true,
+                                scrollDirection: Axis.horizontal,
+                                itemCount: _.imageFileList.length,
+                                separatorBuilder: (c, e) => const SizedBox(
+                                  width: 10.0,
+                                ),
+                                itemBuilder: (c, i) {
+                                  return Container(
+                                    height: 75,
+                                    width: 75,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: FileImage(
+                                            File(_.imageFileList[i].path),
+                                          ),
+                                          fit: BoxFit.cover),
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(23.0),
+                                      border: Border.all(
+                                          color:
+                                              AppColors.textFieldBorderColor),
+                                    ),
+                                  );
+                                },
+                              ),
                             ),
-                          ).marginOnly(left: 12),
-                        ],
+                          ],
+                        ),
                       ).marginOnly(top: 22),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.image_outlined,
-                            size: 30,
-                            color: Color(0xff85BAF8),
-                          ).marginOnly(right: 10),
-                          const Icon(
-                            Icons.gif_box_outlined,
-                            size: 30,
-                            color: Color(0xff85BAF8),
-                          )
-                        ],
-                      ).marginOnly(top: 32),
+                      //-------------------Add location---------------
+                      CommonDropDownField(
+                        placeholder: "Location",
+                        controller: _.location,
+                        values: _.locationList,
+                        checkedvalue: _.location,
+                        screenController: _,
+                      ).marginOnly(top: 23),
                       const SizedBox(
                         height: 40.0,
                       ),
                       CommonButton(
                         text: "Ask Question",
                         textStyle: CommonTextStyle.style1,
-                        onPressed: () {},
+                        onPressed: () {
+                          _.createPostWithImage();
+                        },
                         fillColor: AppColors.buttonColor,
                       )
                     ],

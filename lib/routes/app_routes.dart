@@ -18,4 +18,5 @@ class Routes {
   static const askquestionUser = '/askquestionUserRoute';
   static const notificationPermission = '/notificationPermissionRoute';
   static const searchCategory = '/searchCategoryRoute';
+  static const detailPost = '/detailPostRoute';
 }

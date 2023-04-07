@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:ask/utils/snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -40,7 +43,7 @@ class SignUp2Controller extends GetxController {
         isLoading = true;
         update();
         var res = await http.post(
-          Uri.parse(ApiData.baseUrl + ApiData.signIn),
+          Uri.parse(ApiData.baseUrl + ApiData.signup),
           body: {
             "firstName": firstName.text,
             "lastName": lastName.text,
@@ -50,10 +53,16 @@ class SignUp2Controller extends GetxController {
           },
         );
         var statusCode = res.statusCode;
-        // var data = json.decode(res.body);
-        if (statusCode >= 200 || statusCode <= 300) {
+        var data = json.decode(res.body);
+        print('check data $data');
+        if (statusCode >= 200 && statusCode <= 300) {
           Get.back();
           Get.back();
+          CommonSnackbar.getSnackbar(
+            'Success',
+            'Signup Successfully',
+            Colors.green,
+          );
         } else {
           isLoading = false;
           update();

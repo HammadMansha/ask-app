@@ -103,8 +103,8 @@ class Login extends StatelessWidget {
                                 text: "Log in",
                                 textStyle: CommonTextStyle.style1,
                                 onPressed: () async {
-                                  // await _.signInFun();
-                                  Get.offAllNamed(Routes.notificationPermission);
+                                  await _.signInFun();
+                                  // Get.offAllNamed(Routes.notificationPermission);
                                 },
                                 fillColor: AppColors.buttonColor),
                           ),
